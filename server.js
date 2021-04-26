@@ -11,24 +11,20 @@
 // External Modules
 const express = require("express");
 const methodOverride = require("method-override");
-const session = require("express-session");
-const MongoStore = require("connect-mongo");
-const bcrypt = require("bcryptjs");
 
 // Internal Modules
-
 
 // Instanced Modules
 const app = express();
 
 // Configuration Variables
-
+const PORT = 4000
 
 // App Configuration
 app.set("view engine", "ejs")
 
 // Middleware
-
+app.use(express.urlencoded({extended: true}));
 
 // Session middleware takes in a config object
 
@@ -37,9 +33,12 @@ app.set("view engine", "ejs")
 // Controllers
 
 // Homepage
+app.get("/", function (req, res) {
+    res.render("index.ejs")
+})
 
 // Server Bind
-
+app.listen(PORT, () => {console.log("Server is up and running")});
 
 
 
