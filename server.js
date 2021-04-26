@@ -11,6 +11,7 @@
 // External Modules
 const express = require("express");
 const methodOverride = require("method-override");
+const db = require("./models")
 
 // Internal Modules
 
