@@ -22,11 +22,8 @@ mongoose.connection.on("err", function () {
 	console.log("MongoDB error! Oh no!", err);
 });
 
-module.exports = {
-    
-}
 
 module.exports = {
-    Actor = require("./Actor"),
-    Movie = require("./Movie")
+    Actor: require("./Actor"),
+    Movie: require("./Movie")
 }
