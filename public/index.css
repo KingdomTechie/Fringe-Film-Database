@@ -1,0 +1,46 @@
+body {
+    background-color: #aaaaaa;
+
+}
+
+
+
+header {
+  margin: auto;
+  width: 400px;
+  padding: 5px;
+}
+
+h1 {
+    font-size: 90px;
+}
+
+.blue {
+    color: #033076
+}
+
+h5 {
+    font-size: 25px;
+}
+
+p {
+    color:#033076
+}
+
+
+#searchbar {
+    margin: auto;
+    padding: 5px;
+    width: 355px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#search-btn  {
+    margin-left: 45%;
+    background-color: #033076;
+    color: white;
+    border-radius: 5px;
+}
+
+
