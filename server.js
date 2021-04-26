@@ -25,6 +25,7 @@ app.set("view engine", "ejs")
 
 // Middleware
 app.use(express.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 // Session middleware takes in a config object
 
@@ -34,7 +35,7 @@ app.use(express.urlencoded({extended: true}));
 
 // Homepage
 app.get("/", function (req, res) {
-    res.render("index.ejs")
+    res.render("index")
 })
 
 // Server Bind
