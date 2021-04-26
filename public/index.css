@@ -1,5 +1,6 @@
 body {
     background-color: #aaaaaa;
+    background: linear-gradient(to left, #aaaaaa, #ffffff);
 
 }
 
