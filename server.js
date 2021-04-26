@@ -23,12 +23,10 @@ const app = express();
 
 // Configuration Variables
 
-
 // App Configuration
 app.set("view engine", "ejs")
 
 // Middleware
-
 
 // Session middleware takes in a config object
 
