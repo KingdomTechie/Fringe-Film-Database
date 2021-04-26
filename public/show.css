@@ -1,0 +1,128 @@
+body {
+    background-color: #aaaaaa;
+
+}
+
+.blue {
+    color: #033076
+}
+
+header {
+  margin: auto;
+  width: 400px;
+  padding: 5px;
+}
+
+h1 {
+    font-size: 90px;
+}
+
+h2 {
+    display: inline;
+    margin-right: 5px;
+    
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 25px;
+}
+
+#left-side {
+    display: inline-block;
+    width: 50%;
+    margin-left: 5%;
+}
+
+#right-side {
+    display:inline-block;
+    width: 50%;
+    position: relative;
+    margin-left: 50%;
+}
+
+#searchbar {
+    width: 355px;
+    border-radius: 5px;
+    margin-bottom: 80px;
+}
+
+#search-btn {
+    border-radius: 5px;
+}
+
+#thumbs {
+    margin-bottom: 50px;
+}
+
+#left-thumb  {
+    border-radius: 5px;
+    
+}
+
+#right-thumb  {
+    border-radius: 5px;
+    
+}
+
+#review {
+    display: block;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#submit {
+    height: 32px;
+    background-color: orangered;
+    color: white;
+    border-radius: 5px;
+    font-size: 32;
+    
+}
+
+#add-btn {
+    font-size: 32px;
+    color: #033076;
+
+}
+
+#edit-btn  {
+
+    font-size: 32px;
+    color: #033076;
+}
+
+#rnd-btn  {
+    height: 40px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: orangered;
+    color: white;
+    font-size: 25px;
+}
+
+.image {
+    margin-top: -750px;
+    margin-bottom: 170px;
+    height: 350px;
+    width: 500px;
+    border-radius: 5px;
+}
+
+p  {
+    margin-top: -100px;
+    height: 500px;
+    width: 500px;
+    color: #033076;
+    font-size: 18px;
+    
+    
+}
+
+#thanks {
+    margin-left: 5%
+}
