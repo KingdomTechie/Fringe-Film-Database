@@ -1,6 +1,6 @@
 body {
     background-color: #aaaaaa;
-    background: linear-gradient(to left, #aaaaaa, #ffffff);
+    background: radial-gradient(#aaaaaa, #e6e6e6);
 
 }
 
