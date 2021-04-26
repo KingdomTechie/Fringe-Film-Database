@@ -25,3 +25,8 @@ mongoose.connection.on("err", function () {
 module.exports = {
     
 }
+
+module.exports = {
+    Actor = require("./Actor"),
+    Movie = require("./Movie")
+}
