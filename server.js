@@ -19,6 +19,7 @@ const app = express();
 
 // Configuration Variables
 const PORT = 4000
+require("dotenv").config();
 
 // App Configuration
 app.set("view engine", "ejs")
