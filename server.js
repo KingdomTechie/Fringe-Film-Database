@@ -29,6 +29,7 @@ app.set("view engine", "ejs")
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
+
 // Session middleware takes in a config object
 
 // Logger Middleware (helper tool) - make sure to pass in req object, resp object, and next
@@ -39,7 +40,7 @@ app.use("/movies", controller.movieRoute);
 
 // Homepage
 app.get("/", function (req, res) {
-    res.render("home")
+    res.render("index")
 })
 
 // Server Bind
