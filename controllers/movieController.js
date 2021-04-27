@@ -25,12 +25,31 @@ router.get("/", function (req, res) {
 
 //New
 router.get("/new", function (req, res) {
-    res.render("./new.ejs")
+    
+    db.Actor.find({}, function (err, foundActor) {
+        if (err) return res.send(err)
+
+        const contextActor = {actor: foundActor};
+        res.render("./new.ejs", contextActor)
+
+    })
+    
 });
 
 //Show
-router.get("./show", function (req, res) {
-    res.render("./show.ejs")
+router.get("/:id", function (req, res) {
+    const id = req.params.id;
+
+    db.Movie.findById(id, function (err, foundMovie) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {movie: foundMovie}
+            res.render("./show.ejs", context)
+        }
+    })
+   
 });
 
 //Create
