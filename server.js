@@ -35,7 +35,8 @@ app.use(express.static(__dirname + "/public"));
 
 // Controllers
 app.use("/actors", controller.actorRoute);
-app.use("/movies", controller.movieRoute)
+app.use("/movies", controller.movieRoute);
+
 // Homepage
 app.get("/", function (req, res) {
     res.render("home")
