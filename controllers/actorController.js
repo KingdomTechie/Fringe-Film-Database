@@ -31,7 +31,7 @@ router.get("/", function(req, res) {
 // New 
 
 router.get("/new", function (req, res) {
-    db.Actor.find({}, function (err, foundMovies) {
+    db.Movie.find({}, function (err, foundMovies) {
         if (err) return res.send(err)
 
         const context = {movies: foundMovies};
