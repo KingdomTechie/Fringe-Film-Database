@@ -71,9 +71,7 @@ router.post("/", function (req, res)  {
         if (err) return res.send(err);
 
 
-        
-
-        db.Actor.findById(createdMovie.actor).exec(function (err, foundMovie) {
+        db.Actor.findById(createdMovie.actor).exec(function (err, foundActor) {
             if (err) return res.send(err);
 
             foundActor.titles.push(createdMovie)
