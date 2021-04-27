@@ -3,8 +3,11 @@ const mongoose = require("mongoose");
 const actorSchema = new mongoose.Schema (
     {
         name: {type: String},
-        titles: {type: String},
+        titles: [ref Movie],
         imgUrl: {type: String}
+    }
+    {
+        timestamps: true,
     }
 )
 
