@@ -17,16 +17,13 @@ const db = require("../models");
  * Delete - DELETE - /actors/:id  - Functional - Deletes author by id from request
  */
 
-// Index
-// async - await
-// try - catch
 
 //Index
 router.get("/", function(req, res) {
     res.render("./index.ejs");
 });
-// New 
 
+// New 
 router.get("/new", function(req, res) {
     db.Movie.find({}, function (err, foundMovies) {
         if (err) return res.send(err);
