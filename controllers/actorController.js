@@ -21,11 +21,6 @@ const db = require("../models");
 // async - await
 // try - catch
 
-  
-	
-
-
-
 //Index
 router.get("/", function(req, res) {
     res.render("./index.ejs");
