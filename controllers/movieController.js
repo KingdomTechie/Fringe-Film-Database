@@ -25,7 +25,14 @@ router.get("/", function (req, res) {
 
 //New
 router.get("/new", function (req, res) {
-    res.render("./new.ejs")
+    db.Actor.find({}, function (err, foundActor) {
+        if (err) return res.send(err)
+
+        const contextActor = {actor: foundActor};
+        res.render("./new.ejs", contextActor)
+
+    })
+    
 });
 
 //Show
