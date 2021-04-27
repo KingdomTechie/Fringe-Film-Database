@@ -85,7 +85,17 @@ router.post("/", function (req, res)  {
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render("movieViews/edit");
+    const id = req.params.id;
+    db.Movie.findById(id, function (err, foundMovie) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {movie: foundMovie}
+            res.render("movieViews/edit", context);
+        }
+    })
+    
 });
 
 //Update
