@@ -35,7 +35,9 @@ app.use(express.static(__dirname + "/public"));
 // Logger Middleware (helper tool) - make sure to pass in req object, resp object, and next
 
 // Controllers
-app.use("/actors", controller.actorRoute)
+app.use("/actors", controller.actorRoute);
+app.use("/movies", controller.movieRoute);
+
 // Homepage
 app.get("/", function (req, res) {
     res.render("index")
