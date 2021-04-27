@@ -36,5 +36,11 @@ router.get("/new", function(req, res) {
     res.render("./new.ejs");
 });
 
+//Show
+router.get("/:id", function(req, res) {
+    res.render("./show.ejs");
+});
+
+//Create
 
 module.exports = router;
