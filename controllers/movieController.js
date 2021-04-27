@@ -27,7 +27,14 @@ const path = require("path");
 
 //Index
 router.get("/", function (req, res) {
-    res.render("movieViews/index.ejs");
+    db.Movie.find({}, function (err, allMovies) {
+        if (err) {
+            console.log(err);
+        } else {
+            const context = {movies: allMovies}
+            res.render("movieViews/index")
+        }
+    })
 });
 
 //New
