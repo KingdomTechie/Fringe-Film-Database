@@ -37,5 +37,40 @@ router.get("/:id", function(req, res) {
 });
 
 //Create
+router.post("/", function (req, res)  {
+    db.Actor.create(req.body, function (err, createdActor) {
+        if (err) return res.send(err);
+
+        return res.redirect("actors");
+    });
+});
+
+//Edit
+router.get("/:id/edit", function (req, res) {
+    res.render("./edit.ejs");
+});
+
+router.put("/:id", function (req, res) {
+    const id = req.params.id;
+    db.Actor.findByIdAndUpdate(
+        id, 
+        {
+            $set: { 
+                name: req.body.name,
+                imgUrl: req.body.imgUrl
+            }
+        }
+    )
+});
+
+router.delete("/:id", function (req, res) {
+    const id = req.params.id;
+    db.Actor.findByIdAndDelete(
+        id, 
+        (err, deletedMovie) => {
+            console.log(deletedMovie);
+        });
+     });
+
 
 module.exports = router;
