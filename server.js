@@ -27,8 +27,8 @@ app.set("view engine", "ejs")
 
 // Middleware
 app.use(express.urlencoded({extended: true}));
-app.use(express.static("public"));
-
+//app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
 // Session middleware takes in a config object
 
 // Logger Middleware (helper tool) - make sure to pass in req object, resp object, and next
