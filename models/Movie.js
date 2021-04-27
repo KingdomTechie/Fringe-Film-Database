@@ -7,8 +7,8 @@ const movieSchema = new mongoose.Schema(
         movieReviews: [{body: String}],
         imgUrl: {type: String},
         rating: {type: Number},
-        actor: [ref Actor]
-    }
+        actors: [{type: mongoose.Schema.Types.ObjectId, ref: "Actor"}]
+    },
     {
         timestamps: true,
     }
