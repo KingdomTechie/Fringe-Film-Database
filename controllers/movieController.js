@@ -30,7 +30,17 @@ router.get("/new", function (req, res) {
 
 //Show
 router.get("/:id", function (req, res) {
-    res.render("./show.ejs")
+    const id = req.params.id;
+
+    db.Movie.findById(id, function (err, foundMovie) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {movie: foundMovie}
+        }
+    })
+    res.render("./show.ejs", context)
 });
 
 //Create
