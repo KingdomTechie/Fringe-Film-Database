@@ -28,7 +28,12 @@ router.get("/", function(req, res) {
 // New 
 
 router.get("/new", function(req, res) {
-    res.render("./new.ejs");
+    db.Movie.find({}, function (err, foundMovies) {
+        if (err) return res.send(err);
+
+        const context = {movies: foundMovies};
+        res.render("new")
+    })
 });
 
 //Show
