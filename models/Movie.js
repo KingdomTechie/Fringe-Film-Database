@@ -7,6 +7,7 @@ const movieSchema = new mongoose.Schema(
         movieReviews: [{body: String}],
         imgUrl: {type: String},
         rating: {type: Number},
+        
         actors: [{type: mongoose.Schema.Types.ObjectId, ref: "Actor"}]
     },
     {
