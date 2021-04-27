@@ -71,6 +71,13 @@ router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
         if (err) return res.send(err);
 
+        db.Actor.findById(createdMovie.actor).exec(function (err, foundMovie) {
+            if (err) return res.send(err);
+
+            foundActor.titles.push(createdMovie)
+            foundActor.save();
+        })
+
         return res.redirect("movies");
     });
 });
