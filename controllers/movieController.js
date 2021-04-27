@@ -27,7 +27,7 @@ const path = require("path");
 
 //Index
 router.get("/", function (req, res) {
-    res.render("./index.ejs");
+    res.render("movieViews/index.ejs");
 });
 
 //New
@@ -37,7 +37,7 @@ router.get("/new", function (req, res) {
         if (err) return res.send(err)
 
         const contextActor = {actor: foundActor};
-        res.render("./new.ejs", contextActor)
+        res.render("movieViews/new.ejs", contextActor)
 
     })
     
@@ -53,7 +53,7 @@ router.get("/:id", function (req, res) {
             return res.send("Server Error")
         } else {
             const context = {movie: foundMovie}
-            res.render("./show.ejs", context)
+            res.render("movieViews/show.ejs", context)
         }
     })
    
@@ -69,7 +69,7 @@ router.post("/", function (req, res)  {
 });
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render(".edit.ejs");
+    res.render("movieViews/edit");
 });
 
 //Update
