@@ -3,9 +3,8 @@ const express = require("express");
 // set up router
 const router = express.Router();
 // internal modules (database)
-const db = require("../models");
-// path 
-const path = require("path");
+const db = require("../models"); //?("../models/Movie.js")
+
 //body-parser
 //const bodyParser = require("body-parser");
 
@@ -71,6 +70,9 @@ router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
         if (err) return res.send(err);
 
+
+        
+
         db.Actor.findById(createdMovie.actor).exec(function (err, foundMovie) {
             if (err) return res.send(err);
 
@@ -79,8 +81,10 @@ router.post("/", function (req, res)  {
         })
 
         return res.redirect("movies");
+
     });
 });
+
 //Edit
 router.get("/:id/edit", function (req, res) {
     res.render("movieViews/edit");
