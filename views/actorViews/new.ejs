@@ -37,12 +37,13 @@
         <h3 class="info">Actors</h3>
         <form action="/actors" method="POST">
             <input type="text" name="name" id="fields" placeholder="Actor">
-
+            <option value=""></option>
             <select name="title">
-               <% movies.forEach( movie => { %>
+                <option value="">Select a Movie</option>
+               <% actors.forEach( actor => { %>
 
-                <option value="<%= movie._id%>">
-                    <%= movie.title %>
+                <option value="<%= actor._id%>">
+                    <%= actor.name %>
                 </option>
           <% }); %>
             </select><br>

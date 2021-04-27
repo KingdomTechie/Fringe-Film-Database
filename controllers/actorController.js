@@ -23,7 +23,7 @@ router.get("/", function(req, res) {
     db.Actor.find({}, function (err, foundActor) {
         if (err) return res.send(err)
 
-        const context = {movie: foundMovie};
+        const context = {actor: foundActor};
         res.render("actorViews/index", context)
     });
 });
@@ -31,10 +31,10 @@ router.get("/", function(req, res) {
 // New 
 
 router.get("/new", function (req, res) {
-    db.Movie.find({}, function (err, foundMovies) {
+    db.Actor.find({}, function (err, foundActors) {
         if (err) return res.send(err)
 
-        const context = {movies: foundMovies};
+        const context = {actors: foundActors};
         res.render("actorViews/new.ejs", context)
     })
 });
@@ -50,13 +50,13 @@ router.post("/", function (req, res)  {
     db.Actor.create(req.body, function (err, createdActor) {
         if (err) return res.send(err);
 
-        return res.redirect("actors");
+        return res.redirect("/actors");
     });
 });
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render("./edit.ejs");
+    res.render("actorViews/edit.ejs");
 });
 
 router.put("/:id", function (req, res) {
