@@ -4,6 +4,12 @@ const express = require("express");
 const router = express.Router();
 // internal modules (database)
 const db = require("../models");
+// path 
+const path = require("path");
+//body-parser
+//const bodyParser = require("body-parser");
+
+
 
 // base routes (movies)
 // Rest Routes
@@ -16,6 +22,7 @@ const db = require("../models");
  * Update - PUT - /movies/:id  - Functional - recieve data from edit to update a specific movie
  * Delete - DELETE - /movies/:id  - Functional - Deletes movie by id from request
  */
+
 
 
 //Index
