@@ -38,9 +38,10 @@ router.get("/:id", function (req, res) {
             return res.send("Server Error")
         } else {
             const context = {movie: foundMovie}
+            res.render("./show.ejs", context)
         }
     })
-    res.render("./show.ejs", context)
+   
 });
 
 //Create
