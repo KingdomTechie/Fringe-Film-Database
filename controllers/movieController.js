@@ -25,6 +25,7 @@ router.get("/", function (req, res) {
 
 //New
 router.get("/new", function (req, res) {
+    
     db.Actor.find({}, function (err, foundActor) {
         if (err) return res.send(err)
 
