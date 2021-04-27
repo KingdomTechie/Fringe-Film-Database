@@ -20,7 +20,7 @@
 
 
         <h3 class="info">Add Film</h3>
-    <form action="/movies">
+    <form action="/movies" method="POST">
         <h3 class="info">Title</h3>
         <input type="text" name="title" id="fields" placeholder="Title">
         
@@ -29,31 +29,37 @@
         
         <h3 class="info">Movie Photos</h3>
         <input type="text" name="imgUrl" id="fields" placeholder="Movie Poster, URL's ONLY"><br>
+
+        <option value=""></option>
+            <select name="title">
+                <option value="">Select a Movie</option>
+               <% actor.forEach( actor => { %>
+
+                <option value="<%= actor._id%>">
+                    <%= actor.name %>
+                </option>
+          <% }); %>
+            </select><br>
         <input type="submit" value="Submit Movie">
-    </form><br>
+    </form><br><br>
 
 
-
+    <h3 class="info">Add Actor</h3>
         <h3 class="info">Actors</h3>
         <form action="/actors" method="POST">
             <input type="text" name="name" id="fields" placeholder="Actor">
-            <select name="Movie">
+            <select name="title">
                 <option value="test">Movie</option>
-            </select><br><br>
+            </select><br>
             <h3 class="info">Actor Photos</h3>
            
             <input type="text" name="imgUrl" id="fields" placeholder="Actor Photos, URL's ONLY"><br>
         <input type="submit" value="Submit">
         </form><br>
-
-        
-        
-       
-        
         
     <div id="bottom-buttons">
         <button class="add-btn" type="button">Add</button>
-        <a href='/actors'><button class="add-btn" type="button">Back</button></a>
+        <a href=/actors'><button class="add-btn" type="button">Back</button></a>
     </div>
     </div>
     

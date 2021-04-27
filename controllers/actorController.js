@@ -17,28 +17,32 @@ const db = require("../models");
  * Delete - DELETE - /actors/:id  - Functional - Deletes author by id from request
  */
 
-// Index
-// async - await
-// try - catch
 
 //Index
 router.get("/", function(req, res) {
-    res.render("./index.ejs");
+    db.Actor.find({}, function (err, foundActor) {
+        if (err) return res.send(err)
+
+        const context = {actor: foundActor};
+        res.render("actorViews/index", context)
+    });
 });
+
 // New 
 
-router.get("/new", function(req, res) {
+router.get("/new", function (req, res) {
     db.Movie.find({}, function (err, foundMovies) {
-        if (err) return res.send(err);
+        if (err) return res.send(err)
 
         const context = {movies: foundMovies};
-        res.render("new")
+        res.render("actorViews/new.ejs", context)
     })
 });
 
+
 //Show
 router.get("/:id", function(req, res) {
-    res.render("./show.ejs");
+    res.render("actorViews/show.ejs");
 });
 
 //Create
@@ -46,13 +50,13 @@ router.post("/", function (req, res)  {
     db.Actor.create(req.body, function (err, createdActor) {
         if (err) return res.send(err);
 
-        return res.redirect("actors");
+        return res.redirect("/actors");
     });
 });
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render("./edit.ejs");
+    res.render("actorViews/edit.ejs");
 });
 
 router.put("/:id", function (req, res) {

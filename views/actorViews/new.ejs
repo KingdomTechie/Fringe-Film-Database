@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/add.css">
+
+    
+
+    <title>KMFFDB Add Page</title>
+</head>
+<body>
+    <header>  
+        <h1 class="blue">KMFFDB</h1>
+        <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
+      </header>
+    <div id="info-fields"> 
+
+
+        <h3 class="info">Add Film</h3>
+    <form action="/movies" method="POST">
+        <h3 class="info">Title</h3>
+        <input type="text" name="title" id="fields" placeholder="Title">
+        
+        <h3 class="info">Director</h3>
+        <input type="text" name="director"  id="fields" placeholder="Director">
+        
+        <h3 class="info">Movie Photos</h3>
+        <input type="text" name="imgUrl" id="fields" placeholder="Movie Poster, URL's ONLY"><br>
+        <input type="submit" value="Submit Movie">
+    </form><br><br>
+
+
+    <h3 class="info">Add Actor</h3>
+        <h3 class="info">Actors</h3>
+        <form action="/actors" method="POST">
+            <input type="text" name="name" id="fields" placeholder="Actor">
+            <option value=""></option>
+            <select name="title">
+                <option value="">Select a Movie</option>
+               <% movies.forEach( movie => { %>
+
+                <option value="<%= movie._id%>">
+                    <%= movie.title %>
+                </option>
+          <% }); %>
+            </select><br>
+            <h3 class="info">Actor Photos</h3>
+           
+            <input type="text" name="imgUrl" id="fields" placeholder="Actor Photos, URL's ONLY"><br>
+        <input type="submit" value="Submit">
+        </form><br>
+
+        
+        
+       
+        
+        
+    <div id="bottom-buttons">
+        <button class="add-btn" type="button">Add</button>
+        <a href='/actors'><button class="add-btn" type="button">Back</button></a>
+    </div>
+    </div>
+    
+</body>
+</html>

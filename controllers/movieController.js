@@ -26,17 +26,43 @@ const db = require("../models"); //?("../models/Movie.js")
 
 //Index
 router.get("/", function (req, res) {
-    res.render("./index.ejs");
+    db.Movie.find({}, function (err, allMovies) {
+        if (err) {
+            console.log(err);
+        } else {
+            const context = {movies: allMovies}
+            res.render("movieViews/index")
+        }
+    })
 });
 
 //New
 router.get("/new", function (req, res) {
-    res.render("./new.ejs")
+    
+    db.Actor.find({}, function (err, foundActor) {
+        if (err) return res.send(err)
+
+        const context = {actor: foundActor};
+        res.render("movieViews/new.ejs", context)
+
+    })
+    
 });
 
 //Show
-router.get("./show", function (req, res) {
-    res.render("./show.ejs")
+router.get("/:id", function (req, res) {
+    const id = req.params.id;
+
+    db.Movie.findById(id, function (err, foundMovie) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {movie: foundMovie}
+            res.render("movieViews/show.ejs", context)
+        }
+    })
+   
 });
 
 //Create
@@ -44,13 +70,24 @@ router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
         if (err) return res.send(err);
 
-        res.redirect("movies");
+
+        
+
+        db.Actor.findById(createdMovie.actor).exec(function (err, foundMovie) {
+            if (err) return res.send(err);
+
+            foundActor.titles.push(createdMovie)
+            foundActor.save();
+        })
+
+        return res.redirect("movies");
+
     });
 });
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render(".edit.ejs");
+    res.render("movieViews/edit");
 });
 
 //Update

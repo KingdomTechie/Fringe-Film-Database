@@ -1,3 +1,4 @@
 module.exports = {
-    actorRoute: require('./actorController')
+    actorRoute: require('./actorController'),
+    movieRoute: require('./movieController')
 }

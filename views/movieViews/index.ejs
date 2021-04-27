@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>KMFFDB Index Page</title>
+</head>
+<body>
+    <header>  
+        <h1 class="blue">KMFFDB</h1>
+        <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
+      </header>
+    <div id="searchbar">
+
+        <form action="/movies" method="GET" id="search"> 
+            <p>Find Movies</p>
+            <input type="search" id="query" name="q" placeholder="Search...">
+            <button id="search-btn">Search</button><br>
+            <a href="/movies/new">Add a Movie</a><br>
+            <a href="/actors/new">Add an Actor</a>
+        </form>
+    </div>
+    
+</body>
+</html>
