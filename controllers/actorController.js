@@ -20,11 +20,11 @@ const db = require("../models");
 
 //Index
 router.get("/", function(req, res) {
-    db.Movie.find({}, function (err, foundMovie) {
+    db.Actor.find({}, function (err, foundActor) {
         if (err) return res.send(err)
 
         const context = {movie: foundMovie};
-        res.render("./new.ejs", context)
+        res.render("actorViews/index", context)
     });
 });
 
@@ -35,14 +35,14 @@ router.get("/new", function (req, res) {
         if (err) return res.send(err)
 
         const context = {movies: foundMovies};
-        res.render("./new.ejs", context)
+        res.render("actorViews/new.ejs", context)
     })
 });
 
 
 //Show
 router.get("/:id", function(req, res) {
-    res.render("./show.ejs");
+    res.render("actorViews/show.ejs");
 });
 
 //Create

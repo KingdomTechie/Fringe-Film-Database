@@ -43,8 +43,8 @@ router.get("/new", function (req, res) {
     db.Actor.find({}, function (err, foundActor) {
         if (err) return res.send(err)
 
-        const contextActor = {actor: foundActor};
-        res.render("movieViews/new.ejs", contextActor)
+        const context = {actor: foundActor};
+        res.render("movieViews/new.ejs", context)
 
     })
     
