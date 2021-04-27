@@ -14,7 +14,7 @@ const methodOverride = require("method-override");
 const db = require("./models")
 
 // Internal Modules
-
+const controller = require("./controllers")
 // Instanced Modules
 const app = express();
 
@@ -34,7 +34,7 @@ app.use(express.static("public"));
 // Logger Middleware (helper tool) - make sure to pass in req object, resp object, and next
 
 // Controllers
-
+app.use("/actors", controller.actorRoute)
 // Homepage
 app.get("/", function (req, res) {
     res.render("index")
