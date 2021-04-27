@@ -37,7 +37,7 @@ app.use(express.static(__dirname + "/public"));
 app.use("/actors", controller.actorRoute)
 // Homepage
 app.get("/", function (req, res) {
-    res.render("index")
+    res.render("home")
 })
 
 // Server Bind
