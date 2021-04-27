@@ -40,7 +40,7 @@ app.use("/movies", controller.movieRoute);
 
 // Homepage
 app.get("/", function (req, res) {
-    res.render("index")
+    res.render("home")
 })
 
 // Server Bind
