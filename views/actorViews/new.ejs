@@ -40,10 +40,10 @@
             <option value=""></option>
             <select name="title">
                 <option value="">Select a Movie</option>
-               <% actors.forEach( actor => { %>
+               <% movies.forEach( movie => { %>
 
-                <option value="<%= actor._id%>">
-                    <%= actor.name %>
+                <option value="<%= movie._id%>">
+                    <%= movie.title %>
                 </option>
           <% }); %>
             </select><br>

@@ -31,10 +31,10 @@ router.get("/", function(req, res) {
 // New 
 
 router.get("/new", function (req, res) {
-    db.Actor.find({}, function (err, foundActors) {
+    db.Movie.find({}, function (err, foundMovies) {
         if (err) return res.send(err)
 
-        const context = {actors: foundActors};
+        const context = {movies: foundMovies};
         res.render("actorViews/new.ejs", context)
     })
 });

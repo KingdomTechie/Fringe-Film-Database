@@ -29,6 +29,17 @@
         
         <h3 class="info">Movie Photos</h3>
         <input type="text" name="imgUrl" id="fields" placeholder="Movie Poster, URL's ONLY"><br>
+
+        <option value=""></option>
+            <select name="title">
+                <option value="">Select a Movie</option>
+               <% actor.forEach( actor => { %>
+
+                <option value="<%= actor._id%>">
+                    <%= actor.name %>
+                </option>
+          <% }); %>
+            </select><br>
         <input type="submit" value="Submit Movie">
     </form><br><br>
 
