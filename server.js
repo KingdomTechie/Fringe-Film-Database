@@ -14,7 +14,7 @@ const methodOverride = require("method-override");
 const db = require("./models")
 
 // Internal Modules
-const controller = require("./controllers")
+const controller = require("./controllers")  //? ./controllers/movieController.js
 // Instanced Modules
 const app = express();
 
@@ -36,6 +36,7 @@ app.use(express.static(__dirname + "/public"));
 
 // Controllers
 app.use("/actors", controller.actorRoute)
+
 // Homepage
 app.get("/", function (req, res) {
     res.render("index")
