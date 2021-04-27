@@ -17,21 +17,40 @@
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       </header>
     <div id="info-fields"> 
+
+
         <h3 class="info">Add Film</h3>
+    <form action="/movies">
         <h3 class="info">Title</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Title"></textarea>
+        <input type="text" name="title" id="fields" placeholder="Title">
+        
         <h3 class="info">Director</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Director"></textarea>
+        <input type="text" name="director"  id="fields" placeholder="Director">
+        
+        <h3 class="info">Movie Photos</h3>
+        <input type="text" name="imgUrl" id="fields" placeholder="Movie Poster, URL's ONLY"><br>
+        <input type="submit" value="Submit Movie">
+    </form><br>
+
+
+
         <h3 class="info">Actors</h3>
         <form action="/actors" method="POST">
-        <input type="text" name="name" placeholder="Actor">
-        </form>
-        <textarea id="fields" rows="4" cols="50" placeholder="Actors"></textarea>
-        <h3 class="info">Upload Photos</h3>
-        <h3 class="info">Actor Photos</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Actor Photo, URL's ONLY"></textarea>
-        <h3 class="info">Movie Photos</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Movie Photo, URL's ONLY"></textarea>
+            <input type="text" name="name" id="fields" placeholder="Actor">
+            <select name="Movie">
+                <option value="test">Movie</option>
+            </select><br><br>
+            <h3 class="info">Actor Photos</h3>
+           
+            <input type="text" name="imgUrl" id="fields" placeholder="Actor Photos, URL's ONLY"><br>
+        <input type="submit" value="Submit">
+        </form><br>
+
+        
+        
+       
+        
+        
     <div id="bottom-buttons">
         <button class="add-btn" type="button">Add</button>
         <button class="add-btn" type="button">Back</button>

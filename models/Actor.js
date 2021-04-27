@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const actorSchema = new mongoose.Schema (
     {
         name: {type: String},
-        imgUrl: {type: String},
+        imgUrl: [{type: String}],
         
         titles: [{type: mongoose.Schema.Types.ObjectId, ref: "Movie"}],
     },
