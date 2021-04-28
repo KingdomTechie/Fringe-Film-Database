@@ -83,7 +83,7 @@ router.post("/", function (req, res)  {
         if (err) return res.send(err);
 
 
-        db.Actor.findById(createdMovie.actors).exec(function (err, foundActor) {
+        db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
             if (err) return res.send(err);
             console.log(foundActor, "foundActor");
             foundActor.titles.push(createdMovie)
