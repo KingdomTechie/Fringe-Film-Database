@@ -85,6 +85,14 @@ router.put("/:id", function (req, res) {
                 name: req.body.name,
                 imgUrl: req.body.imgUrl
             }
+        },
+        {new: true},
+        function (err, updatedActor) {
+            if (err) {
+                console.log(err);
+            } else {
+                return res.redirect(`/actors/${updatedActor._id}`)
+            }
         }
     )
 });
