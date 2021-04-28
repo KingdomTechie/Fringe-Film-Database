@@ -31,10 +31,23 @@ router.get("/", function (req, res) {
             console.log(err);
         } else {
             const context = {movies: allMovies}
-            res.render("movieViews/index")
+            res.render("movieViews/index", context)
         }
     })
-});
+})
+
+router.get("/search", function (req, res) {
+    const search = req.query.q
+    console.log(search);
+    db.Movie.findOne({title: search}, function (err, allMovie) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect(`${allMovie._id}`)
+        }
+    })
+    });
+
 
 //New
 router.get("/new", function (req, res) {
