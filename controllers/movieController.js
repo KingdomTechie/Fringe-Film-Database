@@ -23,7 +23,8 @@ const db = require("../models"); //?("../models/Movie.js")
  */
 
 
-
+// regex credit: https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
+// regex credit: https://youtu.be/9_lKMTXVk64
 //Index
 router.get("/", function (req, res) {
     if (req.query.search) {
@@ -83,9 +84,9 @@ router.post("/", function (req, res)  {
         if (err) return res.send(err);
 
 
-        db.Actor.findById(createdMovie.actor).exec(function (err, foundActor) {
+        db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
             if (err) return res.send(err);
-
+            console.log(foundActor, "foundActor");
             foundActor.titles.push(createdMovie)
             foundActor.save();
         })
@@ -117,8 +118,17 @@ router.put("/:id", function (req, res) {
         id, 
         {
             $set: { 
-                name: req.body.name,
+                name: req.body.title,
+                director: req.body.director,
                 imgUrl: req.body.imgUrl
+            }
+        },
+        {new: true},
+        function (err, updatedMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                return res.redirect(`/actors/${updatedMovie._id}`)
             }
         }
     )
@@ -126,11 +136,11 @@ router.put("/:id", function (req, res) {
 
 router.delete("/:id", function (req, res) {
     const id = req.params.id;
-    db.Movie.findByIdAndDelete(
-        id, 
-        (err, deletedMovie) => {
-            console.log(deletedMovie);
-        });
+    db.Movie.findByIdAndDelete(id, function (err, deletedMovie) {
+        if (err) return res.send(err);
+
+        return res.redirect("/movies")
+    })
      });
 
 function escapeRegex(text) {

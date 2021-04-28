@@ -42,7 +42,15 @@ router.get("/new", function (req, res) {
 
 //Show
 router.get("/:id", function(req, res) {
-    res.render("actorViews/show.ejs");
+    const id = req.params.id;
+
+    db.Actor.findById(id, function (err, foundActor) {
+        if (err) return res.send(err)
+
+        const context = {actor: foundActor}
+        res.render("actorViews/show.ejs", context);
+    })
+    
 });
 
 //Create
@@ -56,7 +64,16 @@ router.post("/", function (req, res)  {
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render("actorViews/edit.ejs");
+    const id = req.params.id;
+    db.Actor.findById(id, function (err, foundActor) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {actor: foundActor}
+            res.render("actorViews/edit", context);
+        }
+    })
 });
 
 router.put("/:id", function (req, res) {
@@ -67,6 +84,14 @@ router.put("/:id", function (req, res) {
             $set: { 
                 name: req.body.name,
                 imgUrl: req.body.imgUrl
+            }
+        },
+        {new: true},
+        function (err, updatedActor) {
+            if (err) {
+                console.log(err);
+            } else {
+                return res.redirect(`/actors/${updatedActor._id}`)
             }
         }
     )

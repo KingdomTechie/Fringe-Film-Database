@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./edit.css">
+    <link rel="stylesheet" href="/edit.css">
     <title>KMFFDB Edit Page</title>
 </head>
 <body>
@@ -13,23 +13,26 @@
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       </header>
     <div id="info-fields"> 
-        <h3 class="info">Edit Film</h3>
-        <h3 class="info">Title</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Title"></textarea>
-        <h3 class="info">Director</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Director"></textarea>
-        <h3 class="info">Actors</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Actors"></textarea>
-        <h3 class="info">Upload Photos</h3>
+        <h3 class="info">Edit <%=actor.name%></h3>
+
+        <form action="/actors/<%=actor._id%>?_method=PUT" method="POST">
+        <h3 class="info">Name</h3>
+        <input type="text" name="name" id="fields" rows="4" cols="50" value=<%=actor.name%> placeholder="Name">
+    
         <h3 class="info">Actor Photos</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Actor Photo, URL's ONLY"></textarea>
-        <h3 class="info">Movie Photos</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Movie Photo, URL's ONLY"></textarea>
+        <input type="text" name="imgUrl" id="fields" rows="4" cols="50" value=<%=actor.imgUrl%>placeholder="Actor Photo, URL's ONLY">
+       
+       
+        <h3 class="info">Films</h3>
+        <textarea id="fields" rows="4" cols="50" placeholder="Films"></textarea><br>
+
+        
     <div id="bottom-buttons">
         <button class="add-btn" type="button">Edit</button>
         <button class="add-btn" type="button">Back</button>
-        <button class="add-btn" type="button">Delete</button>
+        <input type="submit" class="add-btn" value="Submit">
     </div>
+</form>
     </div>
     
 </body>

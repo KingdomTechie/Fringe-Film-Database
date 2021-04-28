@@ -13,24 +13,24 @@
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       </header>
     <div id="info-fields"> 
-        <form action="">
+        <form action="/movies/<%=movie._id%>?_method=PUT" method="POST">
         <h3 class="info">Edit <%=movie.title%></h3>
         <h3 class="info">Title</h3>
-        <input type="text" name="title" id="fields" rows="4" cols="50" placeholder="Edit Title">
+        <input type="text" name="title" value="<%=movie.title%>" id="fields" rows="4" cols="50" placeholder="Edit Title">
     
         <h3 class="info">Director</h3>
-        <input type="text" name="director" id="fields" rows="4" cols="50" placeholder="Edit Director">
+        <input type="text" name="director" value="<%=movie.director%> "id="fields" rows="4" cols="50" placeholder="Edit Director">
         
         <h3 class="info">Upload Photos</h3>
-        <input type="text" name="imgUrl" id="fields" rows="4" cols ="50" placeholder="Movie Poster, URL's ONLY"><br>
-
-        <h3 class="info">Actors</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Actors"></textarea>
+        <input type="text" name="imgUrl" id="fields" rows="4" cols ="50" value="<%=movie.imgUrl%>"placeholder="Movie Poster, URL's ONLY"><br>
 
     <div id="bottom-buttons">
         <button class="add-btn" type="button">Edit</button>
         <button class="add-btn" type="button">Back</button>
-        <button class="add-btn" type="button">Delete</button>
+
+        
+        <input type="submit" class="add-btn" value="Submit">
+        </form>
     </div>
     </form>
     </div>
