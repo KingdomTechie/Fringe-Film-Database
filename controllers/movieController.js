@@ -78,6 +78,32 @@ router.get("/:id", function (req, res) {
    
 });
 
+
+//Review
+router.post("/:id/review", function (req, res)  {
+    db.Movie.findById(req.params.id, function (err, foundMovie) {
+        if (err) return res.send(err);
+            console.log(err); 
+            foundMovie.movieReviews.push(req.body)
+            foundMovie.save();
+       
+            return res.redirect("/movies");
+            
+    });
+});
+    router.get("/:id/review", function (req, res) {
+        const review = db.Movie.movieReviews
+        db.Movie.find({"db.Movie.movieReviews": "review"}) ;
+                
+            if (err) {
+                console.log(err);
+                return res.send("Server Error")
+            } else {
+                const context = {review: foundReview}
+                res.render("movieView/show", context);//val = document.getElementById('num').innerHTML;
+            }
+    });
+
 //Create
 router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
@@ -110,6 +136,7 @@ router.get("/:id/edit", function (req, res) {
     })
     
 });
+
 
 //Update
 router.put("/:id", function (req, res) {
