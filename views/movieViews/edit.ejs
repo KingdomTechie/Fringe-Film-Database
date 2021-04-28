@@ -13,7 +13,7 @@
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       </header>
     <div id="info-fields"> 
-        <form action="/movies/<%=movie._id%>?_method" method="POST"></form>
+        <form action="/movies/<%=movie._id%>?_method=DELETE" method="POST">
         <h3 class="info">Edit <%=movie.title%></h3>
         <h3 class="info">Title</h3>
         <input type="text" name="title" value="<%=movie.title%>" id="fields" rows="4" cols="50" placeholder="Edit Title">
@@ -29,7 +29,7 @@
         <button class="add-btn" type="button">Back</button>
 
         
-        <input type="submit" class="add-btn" value="Delete this movie">
+        <input type="submit" class="add-btn" value="Delete">
         </form>
     </div>
     </form>

@@ -123,14 +123,13 @@ router.put("/:id", function (req, res) {
     )
 });
 
-router.delete("/:id/edit", function (req, res) {
+router.delete("/:id", function (req, res) {
     const id = req.params.id;
-    db.Movie.findByIdAndDelete(
-        id, 
-        (err, deletedMovie) => {
-            console.log(deletedMovie);
-        });
-        res.redirect("/movies")
+    db.Movie.findByIdAndDelete(id, function (err, deletedMovie) {
+        if (err) return res.send(err);
+
+        return res.redirect("/movies")
+    })
      });
 
 function escapeRegex(text) {
