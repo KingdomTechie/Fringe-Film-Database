@@ -82,18 +82,17 @@ router.get("/:id", function (req, res) {
 router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
 
-
+        if (req.body.actors) {
         db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
             if (err) return res.send(err);
             console.log(foundActor, "foundActor");
             foundActor.titles.push(createdMovie)
             foundActor.save();
-
-            return res.redirect("movies");
-    
-        })
-        })
-    })
+        });
+    };
+    return res.redirect("/movies");
+        });
+    });
 
     
 

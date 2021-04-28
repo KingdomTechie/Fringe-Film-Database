@@ -13,10 +13,11 @@
         <h1 class="blue">KMFFDB</h1>
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       </header>
+
+
     <div id="info-fields"> 
-
-
         <h3 class="info">Add Film</h3>
+
     <form action="/movies" method="POST">
         <h3 class="info">Title</h3>
         <input type="text" name="title" id="fields" placeholder="Title">
@@ -27,9 +28,8 @@
         <h3 class="info">Movie Photos</h3>
         <input type="text" name="imgUrl" id="fields" placeholder="Movie Poster, URL's ONLY"><br>
 
-        <option value=""></option>
             <select name="actors">
-                <option value="">Select an Actor</option>
+                <option value="" disabled selected>Select an Actor</option>
                <% actor.forEach( actor => { %>
 
                 <option value="<%= actor._id%>">
@@ -39,27 +39,8 @@
             </select><br><br>
         <input type="submit" value="Submit Movie">
     </form><br><br>
+</div>
 
-
-    <h3 class="info">Add Actor</h3>
-    <h3 class="info">Actors</h3>
-
-        <form action="/actors" method="POST">
-            <input type="text" name="name" id="fields" placeholder="Actor">
-            <select name="title">
-                <option value="test">Movie</option>
-            </select><br>
-            <h3 class="info">Actor Photos</h3>
-           
-            <input type="text" name="imgUrl" id="fields" placeholder="Actor Photos, URL's ONLY"><br>
-        <input type="submit" value="Submit">
-        </form><br>
-        
-    <div id="bottom-buttons">
-        <button class="add-btn" type="button">Add</button>
-        <a href=/actors><button class="add-btn" type="button">Back</button></a>
-    </div>
-    </div>
     
 </body>
 </html>
