@@ -26,27 +26,27 @@ const db = require("../models"); //?("../models/Movie.js")
 
 //Index
 router.get("/", function (req, res) {
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        db.Movie.findOne({title: regex}, function (err, foundMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect(`movies/${foundMovie._id}`)
+                }
+            })
+    } else {
     db.Movie.find({}, function (err, allMovies) {
         if (err) {
             console.log(err);
         } else {
             const context = {movies: allMovies}
             res.render("movieViews/index")
-        }
-    })
+            }
+        })
+    }
 });
-/*
-router.get("/search", function (req, res) {
-    db.Movie.findOne({name: req.query}, function (err, allMovie) {
-        if (err) {
-            console.log(err);
-        } else {
-            
-            res.redirect(`/movies/${allMovie._id}`)
-        }
-    })
-});
-*/
+
 //New
 router.get("/new", function (req, res) {
     
@@ -132,5 +132,9 @@ router.delete("/:id", function (req, res) {
         });
      });
 
-     module.exports = router;
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+    };   
+
+    module.exports = router;
 
