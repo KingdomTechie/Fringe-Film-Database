@@ -81,8 +81,21 @@ router.get("/:id", function (req, res) {
 // Rating
 router.put("/:id/rating", function (req, res) {
     const id = req.params.id;
-    findOneAndUpdate({_id :id}, {$inc : {'ratingUp' : 1}}).exec(function (err, foundMovie) {
+
+    db.Movie.findOneAndUpdate({_id :id}, {$inc : {'ratingUp' : 1}}).exec(function (err, foundMovie) {
         if (err) return res.send(err)
+
+        return res.redirect(`/movies/${foundMovie._id}`)
+    });
+})
+
+router.put("/:id/ratingDown", function (req, res) {
+    const id = req.params.id;
+
+    db.Movie.findOneAndUpdate({_id :id}, {$inc : {'ratingDown' : 1}}).exec(function (err, foundMovie) {
+        if (err) return res.send(err)
+
+        return res.redirect(`/movies/${foundMovie._id}`)
     });
 })
 
@@ -107,7 +120,7 @@ router.post("/:id/review", function (req, res)  {
                 return res.send("Server Error")
             } else {
                 const context = {review: foundReview}
-                res.render("movieView/show", context);//val = document.getElementById('num').innerHTML;
+                res.render("movieView/show", context);
             }
     });
 
