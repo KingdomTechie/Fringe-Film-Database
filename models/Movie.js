@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const Actor = require("../models/Actor.js")
 
 const movieSchema = new mongoose.Schema(
     {
