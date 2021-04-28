@@ -26,14 +26,25 @@ const db = require("../models"); //?("../models/Movie.js")
 
 //Index
 router.get("/", function (req, res) {
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        db.Movie.findOne({title: regex}, function (err, foundMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect(`movies/${foundMovie._id}`)
+                }
+            })
+    } else {
     db.Movie.find({}, function (err, allMovies) {
         if (err) {
             console.log(err);
         } else {
             const context = {movies: allMovies}
             res.render("movieViews/index")
-        }
-    })
+            }
+        })
+    }
 });
 
 //New
@@ -71,9 +82,7 @@ router.post("/", function (req, res)  {
         if (err) return res.send(err);
 
 
-        
-
-        db.Actor.findById(createdMovie.actor).exec(function (err, foundMovie) {
+        db.Actor.findById(createdMovie.actor).exec(function (err, foundActor) {
             if (err) return res.send(err);
 
             foundActor.titles.push(createdMovie)
@@ -87,7 +96,17 @@ router.post("/", function (req, res)  {
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    res.render("movieViews/edit");
+    const id = req.params.id;
+    db.Movie.findById(id, function (err, foundMovie) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {movie: foundMovie}
+            res.render("movieViews/edit", context);
+        }
+    })
+    
 });
 
 //Update
@@ -113,5 +132,9 @@ router.delete("/:id", function (req, res) {
         });
      });
 
-     module.exports = router;
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+    };   
+
+    module.exports = router;
 

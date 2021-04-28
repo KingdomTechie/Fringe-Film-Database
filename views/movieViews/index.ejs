@@ -14,13 +14,13 @@
       </header>
     <div id="searchbar">
 
-        <form action="/movies" method="GET" id="search"> 
+        <form action="/movies" method="GET" > 
             <p>Find Movies</p>
-            <input type="search" id="query" name="q" placeholder="Search...">
-            <button id="search-btn">Search</button><br>
-            <a href="/movies/new">Add a Movie</a><br>
-            <a href="/actors/new">Add an Actor</a>
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="Search">
         </form>
+        <a href="/movies/new">Add a Movie</a><br>
+        <a href="/actors/new">Add an Actor</a>
     </div>
     
 </body>
