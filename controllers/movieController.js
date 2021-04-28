@@ -78,6 +78,13 @@ router.get("/:id", function (req, res) {
    
 });
 
+// Rating
+router.put("/:id/rating", function (req, res) {
+    const id = req.params.id;
+    findOneAndUpdate({_id :id}, {$inc : {'ratingUp' : 1}}).exec(function (err, foundMovie) {
+        if (err) return res.send(err)
+    });
+})
 
 //Review
 router.post("/:id/review", function (req, res)  {
@@ -87,7 +94,7 @@ router.post("/:id/review", function (req, res)  {
             foundMovie.movieReviews.push(req.body)
             foundMovie.save();
        
-            return res.redirect("/movies");
+            return res.redirect(`/movies/${foundMovie._id}`);
             
     });
 });
