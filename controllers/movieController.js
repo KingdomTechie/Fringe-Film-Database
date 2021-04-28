@@ -23,7 +23,8 @@ const db = require("../models"); //?("../models/Movie.js")
  */
 
 
-
+// regex credit: https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
+// regex credit: https://youtu.be/9_lKMTXVk64
 //Index
 router.get("/", function (req, res) {
     if (req.query.search) {
@@ -116,8 +117,17 @@ router.put("/:id", function (req, res) {
         id, 
         {
             $set: { 
-                name: req.body.name,
+                name: req.body.title,
+                director: req.body.director,
                 imgUrl: req.body.imgUrl
+            }
+        },
+        {new: true},
+        function (err, updatedMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                return res.redirect(`/actors/${updatedMovie._id}`)
             }
         }
     )
