@@ -27,11 +27,19 @@
 
 
   <div id="thumbs">
-    <h2 class="blue">Leave A Review</h2>     
-    <button id="left-thumb"><img src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png"/></button>
-    <button id="right-thumb"><img src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"/></button>
+    <h2 class="blue">Leave A Review</h2>
 
+    <form action="#">
+      <input type="image" name="ratingUp" src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png" alt="Submit Form"/> 
+    </form>
+    <form action="#">
+      <input type="image" name="ratingDown" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png" alt="Submit Form"/> 
+    </form>
   </div>
+    
+  
+
+  
 
 
 
@@ -49,10 +57,13 @@
   </div>
 <div id="right-side">
     <img class="image" src="<%=movie.imgUrl%>" alt="Movie image">
-    <% for (i = 0; i <= movie.movieReviews; i++) { %>
-    <p class="review">
-    <%= movie.movieReviews[i]%></p>
+
+    <% for (i = 0; i < movie.movieReviews.length; i++) { %>
+     
+      <p class="review"><%= movie.movieReviews[i].body%></p>
+    
     <% } %>
+    
 </div> 
 <div id="thanks">
     <a href="https://icons8.com/icon/85638/thumbs-up">Poor Quality icon by Icons8</a>
