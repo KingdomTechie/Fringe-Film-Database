@@ -81,7 +81,6 @@ router.get("/:id", function (req, res) {
 //Create
 router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
-        if (err) return res.send(err);
 
 
         db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
@@ -89,12 +88,14 @@ router.post("/", function (req, res)  {
             console.log(foundActor, "foundActor");
             foundActor.titles.push(createdMovie)
             foundActor.save();
+
+            return res.redirect("movies");
+    
         })
+        })
+    })
 
-        return res.redirect("movies");
-
-    });
-});
+    
 
 //Edit
 router.get("/:id/edit", function (req, res) {
