@@ -35,7 +35,18 @@ router.get("/", function (req, res) {
         }
     })
 });
-
+/*
+router.get("/search", function (req, res) {
+    db.Movie.findOne({name: req.query}, function (err, allMovie) {
+        if (err) {
+            console.log(err);
+        } else {
+            
+            res.redirect(`/movies/${allMovie._id}`)
+        }
+    })
+});
+*/
 //New
 router.get("/new", function (req, res) {
     
