@@ -23,7 +23,8 @@ const db = require("../models"); //?("../models/Movie.js")
  */
 
 
-
+// regex credit: https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
+// regex credit: https://youtu.be/9_lKMTXVk64
 //Index
 router.get("/", function (req, res) {
     if (req.query.search) {
@@ -77,15 +78,41 @@ router.get("/:id", function (req, res) {
    
 });
 
+
+//Review
+router.post("/:id/review", function (req, res)  {
+    db.Movie.findById(req.params.id, function (err, foundMovie) {
+        if (err) return res.send(err);
+            console.log(err); 
+            foundMovie.movieReviews.push(req.body)
+            foundMovie.save();
+       
+            return res.redirect("/movies");
+            
+    });
+});
+    router.get("/:id/review", function (req, res) {
+        const review = db.Movie.movieReviews
+        db.Movie.find({"db.Movie.movieReviews": "review"}) ;
+                
+            if (err) {
+                console.log(err);
+                return res.send("Server Error")
+            } else {
+                const context = {review: foundReview}
+                res.render("movieView/show", context);//val = document.getElementById('num').innerHTML;
+            }
+    });
+
 //Create
 router.post("/", function (req, res)  {
     db.Movie.create(req.body, function (err, createdMovie) {
         if (err) return res.send(err);
 
 
-        db.Actor.findById(createdMovie.actor).exec(function (err, foundActor) {
+        db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
             if (err) return res.send(err);
-
+            console.log(foundActor, "foundActor");
             foundActor.titles.push(createdMovie)
             foundActor.save();
         })
@@ -110,6 +137,7 @@ router.get("/:id/edit", function (req, res) {
     
 });
 
+
 //Update
 router.put("/:id", function (req, res) {
     const id = req.params.id;
@@ -117,8 +145,17 @@ router.put("/:id", function (req, res) {
         id, 
         {
             $set: { 
-                name: req.body.name,
+                name: req.body.title,
+                director: req.body.director,
                 imgUrl: req.body.imgUrl
+            }
+        },
+        {new: true},
+        function (err, updatedMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                return res.redirect(`/actors/${updatedMovie._id}`)
             }
         }
     )
@@ -126,11 +163,11 @@ router.put("/:id", function (req, res) {
 
 router.delete("/:id", function (req, res) {
     const id = req.params.id;
-    db.Movie.findByIdAndDelete(
-        id, 
-        (err, deletedMovie) => {
-            console.log(deletedMovie);
-        });
+    db.Movie.findByIdAndDelete(id, function (err, deletedMovie) {
+        if (err) return res.send(err);
+
+        return res.redirect("/movies")
+    })
      });
 
 function escapeRegex(text) {

@@ -87,6 +87,7 @@ h5 {
 #add-btn {
     font-size: 32px;
     color: #033076;
+    margin-left: 10px;
 
 }
 
@@ -94,6 +95,7 @@ h5 {
 
     font-size: 32px;
     color: #033076;
+    margin-left: 80px;
 }
 
 #rnd-btn  {
@@ -121,6 +123,10 @@ p  {
     font-size: 18px;
     
     
+}
+
+#home {
+    margin-left: 5%;
 }
 
 #thanks {
