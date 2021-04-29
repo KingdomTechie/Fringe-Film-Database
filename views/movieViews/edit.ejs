@@ -23,20 +23,20 @@
         
         <h3 class="info">Upload Photos</h3>
         <input type="text" name="imgUrl" id="fields" rows="4" cols ="50" value="<%=movie.imgUrl%>"placeholder="Movie Poster, URL's ONLY"><br>
-
-    <div id="bottom-buttons">
-        <button class="add-btn" type="button">Edit</button>
-        <button class="add-btn" type="button">Back</button>
-
-        
-        <input type="submit" class="add-btn" value="Submit">
+        <input type="submit" class="add-btn" value="Edit">
         
     </form>
+
+
     <form action="/movies/<%=movie.id%>?_method=DELETE" method="POST">
         <input type="submit" class="add-btn" value="Delete Film">
     </form>
+
+    <div id="bottom-buttons">
+        
+        <a href="/movies"><button class="add-btn" type="button">Home</button></a>
     </div>
-    </form>
+    
     </div>
     
 </body>

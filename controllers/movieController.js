@@ -65,7 +65,16 @@ router.get("/new", function (req, res) {
 //Show
 router.get("/:id", function (req, res) {
     const id = req.params.id;
-
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        db.Movie.findOne({title: regex}, function (err, foundMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect(`movies/${foundMovie._id}`)
+                }
+            })
+    } else {
     db.Movie.findById(id, function (err, foundMovie) {
         if (err) {
             console.log(err);
@@ -75,7 +84,7 @@ router.get("/:id", function (req, res) {
             res.render("movieViews/show.ejs", context)
         }
     })
-   
+    }    
 });
 
 // Rating
@@ -165,7 +174,7 @@ router.put("/:id", function (req, res) {
         id, 
         {
             $set: { 
-                name: req.body.title,
+                title: req.body.title,
                 director: req.body.director,
                 imgUrl: req.body.imgUrl
             }
@@ -175,7 +184,7 @@ router.put("/:id", function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                return res.redirect(`/actors/${updatedMovie._id}`)
+                return res.redirect(`/movies/${updatedMovie._id}`)
             }
         }
     )

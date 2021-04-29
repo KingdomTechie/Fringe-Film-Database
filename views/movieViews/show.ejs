@@ -10,16 +10,17 @@
 </head>
 <body>
   <header>  
-    <h1 class="blue">KMFFDB</h1>
     <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
+    <h1 class="blue"><%=movie.title%></h1>
+  
   </header>  
 
 <div id="left-side">    
   <nav class="search">
     <h4 class="blue">Find, Movies</h4>
-    <form action="/movies" id="search"> 
+    <form action="/movies" method="GET"> 
         <input id="searchbar" type="search" name="q" placeholder="Search...">
-        <button id="search-btn">Search</button>
+        <input type="submit" id="search-btn" value="Search">
     </form>
   </nav>
 
