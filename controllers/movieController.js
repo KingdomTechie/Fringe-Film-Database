@@ -5,10 +5,6 @@ const router = express.Router();
 // internal modules (database)
 const db = require("../models"); //?("../models/Movie.js")
 
-//body-parser
-//const bodyParser = require("body-parser");
-
-
 
 // base routes (movies)
 // Rest Routes
@@ -47,7 +43,6 @@ router.get("/", function (req, res) {
         })
     }
 });
-
 
 //New
 router.get("/new", function (req, res) {
@@ -150,10 +145,6 @@ router.get("/:id/review", function (req, res) {
         }
 });
 
-
-
-    
-
 //Edit
 router.get("/:id/edit", function (req, res) {
     const id = req.params.id;
@@ -172,6 +163,7 @@ router.get("/:id/edit", function (req, res) {
 //Update
 router.put("/:id", function (req, res) {
     const id = req.params.id;
+
     db.Movie.findByIdAndUpdate(
         id, 
         {
@@ -188,11 +180,12 @@ router.put("/:id", function (req, res) {
             } else {
                 return res.redirect(`/movies/${updatedMovie._id}`)
             }
+            
         }
     )
 });
-;
 
+//Delete
 router.delete("/:id", function (req, res) {
     const id = req.params.id;
     db.Movie.findByIdAndDelete(id, function (err, deletedMovie) {
@@ -202,6 +195,7 @@ router.delete("/:id", function (req, res) {
     })
      });
 
+// Function to work with text in search bar
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };   
