@@ -13,9 +13,12 @@ The KMFFDB is a website, that will allow it's users to:
 
 ## Wireframes and User Flow Images (Used in planning)
 
-![ADD PAGE](/public/images/edit-page.png =150pxX150px)
+![ADD PAGE](/public/images/edit-page.png)
 
-![EDIT PAGE](/public/images/edit-page.png | width=100)
+```html
+<img src="/public/images/edit-page.png" width="250" height="250" />
+```
+![EDIT PAGE](/public/images/edit-page.png)
 
 ![INDEX PAGE](/public/images/index-page.png)
 
@@ -44,3 +47,5 @@ and General Assembly.
 ## License
 
 Open Source MIT
+
+
