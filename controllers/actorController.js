@@ -19,6 +19,7 @@ const db = require("../models");
 
 
 //Index
+/*
 router.get("/", function(req, res) {
     db.Actor.find({}, function (err, foundActor) {
         if (err) return res.send(err)
@@ -26,6 +27,30 @@ router.get("/", function(req, res) {
         const context = {actor: foundActor};
         res.render("actorViews/index", context)
     });
+});
+*/
+
+router.get("/", function (req, res) {
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        db.Actor.findOne({name: regex}, function (err, foundActor) {
+            if (err) {
+                console.log(err);
+                return res.send("Actor may not be in database")
+            } else {
+                res.redirect(`actors/${foundActor._id}`)
+                }
+            })
+    } else {
+    db.Actor.find({}, function (err, allActors) {
+        if (err) {
+            console.log(err);
+        } else {
+            const context = {movies: allActors}
+            res.render("actorViews/index")
+            }
+        })
+    }
 });
 
 // New 
@@ -114,6 +139,10 @@ router.delete("/:id", function (req, res) {
             console.log(deletedMovie);
         });
      });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}; 
 
 
 module.exports = router;
