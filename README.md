@@ -17,7 +17,7 @@ The KMFFDB is a website, that will allow it's users to:
 
 ```html
 
-<img src="/public/images/edit-page.png" width="250" height="250" /> 
+<img src="/public/images/edit-page.png" width ="250" height ="250" /> 
 
 ```
 
