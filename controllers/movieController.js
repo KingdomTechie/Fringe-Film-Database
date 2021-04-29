@@ -108,7 +108,7 @@ router.put("/:id/ratingDown", function (req, res) {
     });
 })
 
-//Review
+//Review - post reviews to database
 router.post("/:id/review", function (req, res)  {
     db.Movie.findById(req.params.id, function (err, foundMovie) {
         if (err) return res.send(err);
@@ -117,21 +117,22 @@ router.post("/:id/review", function (req, res)  {
             foundMovie.save();
        
             return res.redirect(`/movies/${foundMovie._id}`);
-            
     });
 });
-    router.get("/:id/review", function (req, res) {
-        const review = db.Movie.movieReviews
-        db.Movie.find({"db.Movie.movieReviews": "review"}) ;
-                
-            if (err) {
-                console.log(err);
-                return res.send("Server Error")
-            } else {
-                const context = {review: foundReview}
-                res.render("movieView/show", context);
-            }
-    });
+
+// Review - get reviews to display
+router.get("/:id/review", function (req, res) {
+    const review = db.Movie.movieReviews
+    db.Movie.find({"db.Movie.movieReviews": "review"}) ;
+            
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {review: foundReview}
+            res.render("movieView/show", context);
+        }
+});
 
 //Create
 router.post("/", function (req, res)  {

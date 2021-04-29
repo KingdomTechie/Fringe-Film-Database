@@ -84,6 +84,7 @@ router.get("/:id/edit", function (req, res) {
     })
 });
 
+// Update
 router.put("/:id", function (req, res) {
     const id = req.params.id;
     db.Actor.findByIdAndUpdate(
