@@ -13,7 +13,7 @@ The KMFFDB is a website, that will allow it's users to:
 
 ## Wireframes and User Flow Images (Used in planning)
 
-![ADD PAGE](<img src="/public/images/edit-page.png" width="200px" height="200px">)
+![ADD PAGE](/public/images/add-page.png){:.some-css-class style= width: "200px"}
 
 ![EDIT PAGE](/public/images/edit-page.png)
 
