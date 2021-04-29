@@ -50,7 +50,7 @@
 <div id="right-side">
     <img class="image" src="<%=movie.imgUrl%>" alt="Movie image">
     
-      <%for (i=0; i <= movie.movieReviews.length; i++) { %>
+      <%for (i=0; i < movie.movieReviews.length; i++) { %>
         <p class="review">   
         <%=movie.movieReviews[i].body%></p>
         <% } %>   
