@@ -1,6 +1,4 @@
-# KMFFDB Keith and Mitch Fringe Film
-
-Database
+# KMFFDB Keith and Mitch Fringe Film Database
 
 ## Description
 
@@ -15,7 +13,17 @@ The KMFFDB is a website, that will allow it's users to:
 
 ## Wireframes and User Flow Images (Used in planning)## Installation (Dependencies)
 
-![KMFFDB ADD PAGE.png](./KMFFDB IMG/KMFFDB ADD PAGE.png)
+![ADD PAGE](/images/add-page.png)
+
+![EDIT PAGE](/images/edit-page.png)
+
+![INDEX PAGE](/images/index-page.png)
+
+![SHOW PAGE](/images/show-page.png)
+
+![USER FLOW](/images/user-flow.png)
+
+## Configuration(Dependencies)
 
 "dotenv": "^8.2.0",
 "ejs": "^3.1.6",
