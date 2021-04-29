@@ -103,8 +103,14 @@ router.get("/:id/edit", function (req, res) {
       console.log(err);
       return res.send("Server Error");
     } else {
-      const context = { actor: foundActor };
-      res.render("actorViews/edit", context);
+        db.Movie.find({}, function (err, foundMovie) {
+          if (err) return res.send(err)
+
+          const context = { actor: foundActor,
+                            movie: foundMovie,};
+          res.render("actorViews/edit", context);
+        })
+      
     }
   });
 });
@@ -118,6 +124,7 @@ router.put("/:id", function (req, res) {
       $set: {
         name: req.body.name,
         imgUrl: req.body.imgUrl,
+        actorBio: req.body.actorBio
       },
     },
     { new: true },
@@ -125,6 +132,18 @@ router.put("/:id", function (req, res) {
       if (err) {
         console.log(err);
       } else {
+
+        if(req.body.titles) {
+          db.Movie.findById(req.body.titles).exec(function (err, foundMovie) {
+            if (err) return res.send(err);
+            console.log(foundMovie, "foundMovie");
+            foundMovie.actors.push(updatedActor);
+            foundMovie.save();
+            updatedActor.titles.push(foundMovie)
+            updatedActor.save();
+          })
+        }
+
         return res.redirect(`/actors/${updatedActor._id}`);
       }
     }

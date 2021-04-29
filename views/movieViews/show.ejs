@@ -59,13 +59,7 @@
 
       <h2 class="blue">Leave A Review</h2>
       <form action="/movies/<%=movie._id%>/review" method="POST">
-        <textarea
-          id="review"
-          name="body"
-          rows="4"
-          cols="50"
-          placeholder="Leave a review..."
-        ></textarea>
+        <textarea id="review" name="body" rows="4" cols="50" placeholder="Leave a review..."></textarea>
         <button type="submit" id="submit">Submit</button>
       </form>
       <br />

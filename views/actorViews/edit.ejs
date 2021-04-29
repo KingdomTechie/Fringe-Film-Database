@@ -25,14 +25,26 @@
        
 
         <h3 class="info">Films</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Films"></textarea><br>
+        <select name="titles">
+            <option value="" disabled selected>Select a Film</option>
+           <% movie.forEach( movie => { %>
 
-        <input type="submit" class="add-btn" value="Submit">
-    </form>
-    </div>
+            <option value="<%= movie._id%>">
+                <%= movie.title %>
+            </option>
+      <% }); %>
+        </select><br><br>
+
+        <h3 class="blue">Edit Actor Bio</h3>
+
+        <textarea id="review" name="actorBio" rows="4" cols="50" placeholder="Actor Bio..."></textarea>
+        <input type="submit" value="Submit">
+
+    </form><br>
+      <br/><br>
+    </div><br>
 
     <div id="bottom-buttons">
-    <button class="add-btn" type="button">Edit</button>
        <a href="javascript: javascript: history.go(-1)"><button class="add-btn" type="button">Back</button></a>
        <a href="/actors"><button class="add-btn" type="button">Home</button></a>
     </div>
