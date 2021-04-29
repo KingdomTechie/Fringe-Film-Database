@@ -22,17 +22,18 @@
         <h3 class="info">Actor Photos</h3>
         <input type="text" name="imgUrl" id="fields" rows="4" cols="50" value=<%=actor.imgUrl%>placeholder="Actor Photo, URL's ONLY">
        
-       
+
         <h3 class="info">Films</h3>
         <textarea id="fields" rows="4" cols="50" placeholder="Films"></textarea><br>
 
-        
-    <div id="bottom-buttons">
-        <button class="add-btn" type="button">Edit</button>
-        <button class="add-btn" type="button">Back</button>
         <input type="submit" class="add-btn" value="Submit">
+    </form>
     </div>
-</form>
+
+    <div id="bottom-buttons">
+    <button class="add-btn" type="button">Edit</button>
+       <a href="javascript: javascript: history.go(-1)"><button class="add-btn" type="button">Back</button></a>
+       <a href="/actors"><button class="add-btn" type="button">Home</button></a>
     </div>
     
 </body>
