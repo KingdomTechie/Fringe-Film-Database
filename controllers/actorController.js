@@ -103,8 +103,14 @@ router.get("/:id/edit", function (req, res) {
       console.log(err);
       return res.send("Server Error");
     } else {
-      const context = { actor: foundActor };
-      res.render("actorViews/edit", context);
+        db.Movie.find({}, function (err, foundMovie) {
+          if (err) return res.send(err)
+
+          const context = { actor: foundActor,
+                            movie: foundMovie,};
+          res.render("actorViews/edit", context);
+        })
+      
     }
   });
 });

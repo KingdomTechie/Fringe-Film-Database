@@ -25,7 +25,15 @@
        
 
         <h3 class="info">Films</h3>
-        <textarea id="fields" rows="4" cols="50" placeholder="Films"></textarea><br>
+        <select name="titles">
+            <option value="" disabled selected>Select a Film</option>
+           <% movie.forEach( movie => { %>
+
+            <option value="<%= movie._id%>">
+                <%= movie.title %>
+            </option>
+      <% }); %>
+        </select><br><br>
 
         <input type="submit" class="add-btn" value="Submit">
     </form>
