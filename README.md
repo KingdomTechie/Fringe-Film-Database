@@ -13,15 +13,15 @@ The KMFFDB is a website, that will allow it's users to:
 
 ## Wireframes and User Flow Images (Used in planning)
 
-<img src="./public/images/add-page.png" width ="200" height ="150" /> 
+<img src="./public/images/add-page.png" width ="250" height ="165" /> 
 
-<img src="./public/images/edit-page.png" width ="200" height ="150" /> 
+<img src="./public/images/edit-page.png" width ="250" height ="165" /> 
 
-<img src="./public/images/index-page.png" width ="200" height ="150" /> 
+<img src="./public/images/index-page.png" width ="250" height ="165" /> 
 
-<img src="./public/images/show-page.png" width ="200" height ="150" /> 
+<img src="./public/images/show-page.png" width ="250" height ="165" /> 
 
-<img src="./public/images/user-flow.png" width ="200" height ="150" /> 
+<img src="./public/images/user-flow.png" width ="250" height ="165" /> 
 
 ## Configuration(Dependencies)
 
