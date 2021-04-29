@@ -40,11 +40,11 @@
       <a href="/actors">Home</a>
 
       <h3 class="blue">Films</h3>
-      <ul>
+      <ul id="title-ul">
         <%for (let i= 0; i < actor.titles.length; i++) {%>
 
-        <a href="/movies/<%=actor.titles[i]%>"
-          ><li><%=actor.titles[i].title%></li></a
+        <a href="/movies/<%=actor.titles[i]%>">
+          <li> <img class= "title-image" src="<%=actor.titles[i].imgUrl%>" ></li></a
         >
         <% } %>
       </ul>
