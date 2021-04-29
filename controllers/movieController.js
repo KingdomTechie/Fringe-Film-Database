@@ -97,7 +97,7 @@ router.put("/:id/rating", function (req, res) {
         return res.redirect(`/movies/${foundMovie._id}`)
     });
 })
-
+// Rating
 router.put("/:id/ratingDown", function (req, res) {
     const id = req.params.id;
 
@@ -166,7 +166,6 @@ router.get("/:id/edit", function (req, res) {
     })
     
 });
-
 
 //Update
 router.put("/:id", function (req, res) {

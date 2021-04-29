@@ -69,7 +69,8 @@ router.get("/new", function (req, res) {
 router.get("/:id", function(req, res) {
     const id = req.params.id;
 
-    db.Actor.findById(id, function (err, foundActor) {
+    db.Actor.findById(id) .populate("titles")
+    .exec(function (err, foundActor) {
         if (err) return res.send(err)
 
         const context = {actor: foundActor}

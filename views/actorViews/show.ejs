@@ -30,16 +30,23 @@
     <h2 class="blue">Leave A Review</h2>     
     <button id="left-thumb"><img src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png"/></button>
     <button id="right-thumb"><img src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"/></button>
-
-
-
-
   </div>
+
+
     <textarea id="review" name="review" rows="4" cols="50" placeholder= "Leave a review..."></textarea>
     <button id="submit">Submit</button>
     <h2 id="add-btn">Add Film</h2><button id="rnd-btn" class="rnd-btn" type="button">+</button>
     <a href="/actors/<%=actor._id%>/edit"><h2 id="edit-btn">Edit Actor</h2><button id="rnd-btn" class="rnd-btn" type="button">+</button></a><br><br>
     <a href="/actors">Home</a>
+
+    <h3 class="blue">Films</h3>
+    <ul>
+    <%for (let i= 0; i < actor.titles.length; i++) {%>
+
+    <li><%=actor.titles[i].title%></li>
+   <% } %>
+  </ul>
+
   </div>
 
 
