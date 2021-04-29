@@ -1,6 +1,6 @@
 body {
     background-color: #aaaaaa;
-
+    background: linear-gradient(to right,#404040, #ffffff);
 }
 
 .blue {

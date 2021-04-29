@@ -5,10 +5,6 @@ const router = express.Router();
 // internal modules (database)
 const db = require("../models"); //?("../models/Movie.js")
 
-//body-parser
-//const bodyParser = require("body-parser");
-
-
 
 // base routes (movies)
 // Rest Routes
@@ -48,7 +44,6 @@ router.get("/", function (req, res) {
     }
 });
 
-
 //New
 router.get("/new", function (req, res) {
     
@@ -61,6 +56,22 @@ router.get("/new", function (req, res) {
     })
     
 });
+
+//Create
+router.post("/", function (req, res)  {
+    db.Movie.create(req.body, function (err, createdMovie) {
+
+        if (req.body.actors) {
+        db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
+            if (err) return res.send(err);
+            console.log(foundActor, "foundActor");
+            foundActor.titles.push(createdMovie)
+            foundActor.save();
+        });
+    };
+    return res.redirect("/movies");
+        });
+    });
 
 //Show
 router.get("/:id", function (req, res) {
@@ -97,7 +108,7 @@ router.put("/:id/rating", function (req, res) {
         return res.redirect(`/movies/${foundMovie._id}`)
     });
 })
-
+// Rating
 router.put("/:id/ratingDown", function (req, res) {
     const id = req.params.id;
 
@@ -134,24 +145,6 @@ router.get("/:id/review", function (req, res) {
         }
 });
 
-//Create
-router.post("/", function (req, res)  {
-    db.Movie.create(req.body, function (err, createdMovie) {
-
-        if (req.body.actors) {
-        db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
-            if (err) return res.send(err);
-            console.log(foundActor, "foundActor");
-            foundActor.titles.push(createdMovie)
-            foundActor.save();
-        });
-    };
-    return res.redirect("/movies");
-        });
-    });
-
-    
-
 //Edit
 router.get("/:id/edit", function (req, res) {
     const id = req.params.id;
@@ -160,17 +153,25 @@ router.get("/:id/edit", function (req, res) {
             console.log(err);
             return res.send("Server Error")
         } else {
-            const context = {movie: foundMovie}
-            res.render("movieViews/edit", context);
+            db.Actor.find({},function (err, foundActor) {
+                if (err) return res.send(err)
+
+                const context = {movie: foundMovie,
+                    actor: foundActor}
+                
+                    res.render("movieViews/edit", context);
+            } )
+            
+            
         }
     })
     
 });
 
-
 //Update
 router.put("/:id", function (req, res) {
     const id = req.params.id;
+
     db.Movie.findByIdAndUpdate(
         id, 
         {
@@ -185,12 +186,23 @@ router.put("/:id", function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                return res.redirect(`/movies/${updatedMovie._id}`)
+
+            if (req.body.actors) {
+                db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
+                    if (err) return res.send(err);
+                    console.log(foundActor, "foundActor");
+                    foundActor.titles.push(updatedMovie)
+                    foundActor.save();
+                    updatedMovie.actors.push(foundActor)
+                    updatedMovie.save()
+                });
             }
+        return res.redirect(`/movies/${updatedMovie._id}`)
         }
-    )
+        })
 });
 
+//Delete
 router.delete("/:id", function (req, res) {
     const id = req.params.id;
     db.Movie.findByIdAndDelete(id, function (err, deletedMovie) {
@@ -200,6 +212,7 @@ router.delete("/:id", function (req, res) {
     })
      });
 
+// Function to work with text in search bar
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };   

@@ -17,7 +17,6 @@ const db = require("../models");
  * Delete - DELETE - /actors/:id  - Functional - Deletes author by id from request
  */
 
-
 //Index
 /*
 router.get("/", function(req, res) {
@@ -31,118 +30,126 @@ router.get("/", function(req, res) {
 */
 
 router.get("/", function (req, res) {
-    if (req.query.search) {
-        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-        db.Actor.findOne({name: regex}, function (err, foundActor) {
-            if (err) {
-                console.log(err);
-                return res.send("Actor may not be in database")
-            } else {
-                res.redirect(`actors/${foundActor._id}`)
-                }
-            })
-    } else {
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), "gi");
+    db.Actor.findOne({ name: regex }, function (err, foundActor) {
+      if (err) {
+        console.log(err);
+        return res.send("Actor may not be in database");
+      } else {
+        res.redirect(`actors/${foundActor._id}`);
+      }
+    });
+  } else {
     db.Actor.find({}, function (err, allActors) {
-        if (err) {
-            console.log(err);
-        } else {
-            const context = {movies: allActors}
-            res.render("actorViews/index")
-            }
-        })
-    }
+      if (err) {
+        console.log(err);
+      } else {
+        const context = { movies: allActors };
+        res.render("actorViews/index");
+      }
+    });
+  }
 });
 
-// New 
+// New
 
 router.get("/new", function (req, res) {
-    db.Movie.find({}, function (err, foundMovies) {
-        if (err) return res.send(err)
+  db.Movie.find({}, function (err, foundMovies) {
+    if (err) return res.send(err);
 
-        const context = {movies: foundMovies};
-        res.render("actorViews/new.ejs", context)
-    })
+    const context = { movies: foundMovies };
+    res.render("actorViews/new.ejs", context);
+  });
 });
 
-
 //Show
-router.get("/:id", function(req, res) {
-    const id = req.params.id;
+router.get("/:id", function (req, res) {
+  const id = req.params.id;
 
-    db.Actor.findById(id, function (err, foundActor) {
-        if (err) return res.send(err)
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), "gi");
+    db.Actor.findOne({ name: regex }, function (err, foundActor) {
+      if (err) {
+        console.log(err);
+      } else {
+        res.redirect(`/actors/${foundActor._id}`);
+      }
+    });
+  } else {
+    db.Actor.findById(id)
+      .populate("titles")
+      .exec(function (err, foundActor) {
+        if (err) return res.send(err);
 
-        const context = {actor: foundActor}
+        const context = { actor: foundActor };
         res.render("actorViews/show.ejs", context);
-    })
-    
+      });
+  }
 });
 
 //Create
-router.post("/", function (req, res)  {
-    db.Actor.create(req.body, function (err, createdActor) {
+router.post("/", function (req, res) {
+  db.Actor.create(req.body, function (err, createdActor) {
+    if (err) return res.send(err);
+
+    if (req.body.titles) {
+      db.Movie.findById(req.body.titles).exec(function (err, foundMovie) {
         if (err) return res.send(err);
 
-        if (req.body.titles) {
-        db.Movie.findById(req.body.titles).exec (function (err, foundMovie) {
-            if (err) return res.send(err)
-            
-            console.log(foundMovie, "foundMovie");
-            foundMovie.actors.push(createdActor)
-        })
-    };
-        return res.redirect("/actors");
-    });
+        console.log(foundMovie, "foundMovie");
+        foundMovie.actors.push(createdActor);
+      });
+    }
+    return res.redirect("/actors");
+  });
 });
 
 //Edit
 router.get("/:id/edit", function (req, res) {
-    const id = req.params.id;
-    db.Actor.findById(id, function (err, foundActor) {
-        if (err) {
-            console.log(err);
-            return res.send("Server Error")
-        } else {
-            const context = {actor: foundActor}
-            res.render("actorViews/edit", context);
-        }
-    })
+  const id = req.params.id;
+  db.Actor.findById(id, function (err, foundActor) {
+    if (err) {
+      console.log(err);
+      return res.send("Server Error");
+    } else {
+      const context = { actor: foundActor };
+      res.render("actorViews/edit", context);
+    }
+  });
 });
 
 // Update
 router.put("/:id", function (req, res) {
-    const id = req.params.id;
-    db.Actor.findByIdAndUpdate(
-        id, 
-        {
-            $set: { 
-                name: req.body.name,
-                imgUrl: req.body.imgUrl
-            }
-        },
-        {new: true},
-        function (err, updatedActor) {
-            if (err) {
-                console.log(err);
-            } else {
-                return res.redirect(`/actors/${updatedActor._id}`)
-            }
-        }
-    )
+  const id = req.params.id;
+  db.Actor.findByIdAndUpdate(
+    id,
+    {
+      $set: {
+        name: req.body.name,
+        imgUrl: req.body.imgUrl,
+      },
+    },
+    { new: true },
+    function (err, updatedActor) {
+      if (err) {
+        console.log(err);
+      } else {
+        return res.redirect(`/actors/${updatedActor._id}`);
+      }
+    }
+  );
 });
 
 router.delete("/:id", function (req, res) {
-    const id = req.params.id;
-    db.Actor.findByIdAndDelete(
-        id, 
-        (err, deletedMovie) => {
-            console.log(deletedMovie);
-        });
-     });
+  const id = req.params.id;
+  db.Actor.findByIdAndDelete(id, (err, deletedMovie) => {
+    console.log(deletedMovie);
+  });
+});
 
 function escapeRegex(text) {
-    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
-}; 
-
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
 
 module.exports = router;

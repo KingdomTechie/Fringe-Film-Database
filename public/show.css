@@ -1,10 +1,10 @@
 body {
-    background-color: #aaaaaa;
-
+  background-color: #aaaaaa;
+  background: linear-gradient(to right, #9c9494, #ffffff);
 }
 
 .blue {
-    color: #033076
+  color: #033076;
 }
 
 header {
@@ -14,122 +14,124 @@ header {
 }
 
 h1 {
-    font-size: 90px;
+  font-size: 90px;
 }
 
 h2 {
-    display: inline;
-    margin-right: 5px;
-    
+  display: inline;
+  margin-right: 5px;
 }
 
 h4 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 h5 {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 #left-side {
-    display: inline-block;
-    width: 50%;
-    margin-left: 5%;
+  display: inline-block;
+  width: 50%;
+  margin-left: 5%;
 }
 
 #right-side {
-    display:inline-block;
-    width: 50%;
-    position: relative;
-    margin-left: 50%;
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  margin-left: 50%;
 }
 
 #searchbar {
-    width: 355px;
-    border-radius: 5px;
-    margin-bottom: 80px;
+  width: 355px;
+  border-radius: 5px;
+  margin-bottom: 80px;
 }
 
 #search-btn {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 #thumbs {
-    margin-bottom: 50px;
-    display: flex;
+  margin-bottom: 50px;
+  display: flex;
 }
 
-#left-thumb  {
-    border-radius: 5px;
-    
+#left-thumb {
+  border-radius: 5px;
 }
 
-#right-thumb  {
-    border-radius: 5px;
-    
+#right-thumb {
+  border-radius: 5px;
 }
 
 #review {
-    display: block;
-    height: 200px;
-    margin-bottom: 20px;
-    border-radius: 5px;
+  display: block;
+  height: 200px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 #submit {
-    height: 32px;
-    background-color: orangered;
-    color: white;
-    border-radius: 5px;
-    font-size: 32;
-    
+  height: 32px;
+  background-color: orangered;
+  color: white;
+  border-radius: 5px;
+  font-size: 32;
 }
 
 #add-btn {
-    font-size: 32px;
-    color: #033076;
-    margin-left: 10px;
-
+  font-size: 32px;
+  color: #033076;
+  margin-left: 10px;
 }
 
-#edit-btn  {
-
-    font-size: 32px;
-    color: #033076;
-    margin-left: 80px;
+#edit-btn {
+  font-size: 32px;
+  color: #033076;
+  margin-left: 80px;
 }
 
-#rnd-btn  {
-    height: 40px;
-    width: 50px;
-    border-radius: 50px;
-    background-color: orangered;
-    color: white;
-    font-size: 25px;
+#rnd-btn {
+  height: 40px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: orangered;
+  color: white;
+  font-size: 25px;
 }
 
 .image {
-    margin-top: -750px;
-    margin-bottom: 170px;
-    height: 350px;
-    width: 500px;
-    border-radius: 5px;
+  margin-top: -675px;
+  margin-bottom: 170px;
+  height: auto;
+  width: 400px;
+  border-radius: 5px;
+  object-fit: cover;
 }
 
-p  {
-    margin-top: -100px;
-    height: 500px;
-    width: 500px;
-    color: #033076;
-    font-size: 18px;
-    
-    
+.actor-image {
+  margin-top: -350px;
+  margin-bottom: 170px;
+  max-height: 350px;
+  width: 500px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+p {
+  margin-top: -100px;
+  height: 125px;
+  width: 500px;
+  color: #033076;
+  font-size: 18px;
 }
 
 #home {
-    margin-left: 5%;
+  margin-left: 5%;
 }
 
 #thanks {
-    margin-left: 5%
+  margin-left: 5%;
 }
