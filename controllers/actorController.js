@@ -131,6 +131,18 @@ router.put("/:id", function (req, res) {
       if (err) {
         console.log(err);
       } else {
+
+        if(req.body.titles) {
+          db.Movie.findById(req.body.titles).exec(function (err, foundMovie) {
+            if (err) return res.send(err);
+            console.log(foundMovie, "foundMovie");
+            foundMovie.actors.push(updatedActor);
+            foundMovie.save();
+            updatedActor.titles.push(foundMovie)
+            updatedActor.save();
+          })
+        }
+
         return res.redirect(`/actors/${updatedActor._id}`);
       }
     }
