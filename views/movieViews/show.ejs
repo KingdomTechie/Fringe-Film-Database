@@ -1,76 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/show.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="/show.css" />
     <title>KMFFDB SHOW</title>
-</head>
-<body>
-  <header>  
-    <h1 class="blue">KMFFDB</h1>
-    <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
-  </header>  
+  </head>
+  <body>
+    <header>
+      <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
+      <h1 class="blue"><%=movie.title%></h1>
+    </header>
 
-<div id="left-side">    
-  <nav class="search">
-    <h4 class="blue">Find, Movies</h4>
-    <form action="/movies" id="search"> 
-        <input id="searchbar" type="search" name="q" placeholder="Search...">
-        <button id="search-btn">Search</button>
-    </form>
-  </nav>
+    <div id="left-side">
+      <nav class="search">
+        <form action="/movies" method="GET">
+          <h4 class="blue">Find Movies</h4>
 
+          <input
+            id="searchbar"
+            type="text"
+            name="search"
+            placeholder="Search..."
+          />
 
+          <input type="submit" id="search-btn" value="Search" />
+        </form>
+      </nav>
 
+      <div id="thumbs">
+        <form action="/movies/<%=movie._id%>/rating?_method=PUT" method="POST">
+          <input
+            type="image"
+            name="ratingUp"
+            src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png"
+            alt="Submit Form"
+          /><span><%=movie.ratingUp%></span>
+        </form>
 
-  <div id="thumbs">
-    <h2 class="blue">Leave A Review</h2>
+        <form
+          action="/movies/<%=movie._id%>/ratingDown?_method=PUT"
+          method="POST"
+        >
+          <input
+            type="image"
+            name="ratingDown"
+            src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png"
+            alt="Submit Form"
+          /><span><%=movie.ratingDown%></span>
+        </form>
+      </div>
 
-    <form action="#">
-      <input type="image" name="ratingUp" src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png" alt="Submit Form"/> 
-    </form>
-    <form action="#">
-      <input type="image" name="ratingDown" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png" alt="Submit Form"/> 
-    </form>
-  </div>
-    
-  
+      <h2 class="blue">Leave A Review</h2>
+      <form action="/movies/<%=movie._id%>/review" method="POST">
+        <textarea
+          id="review"
+          name="body"
+          rows="4"
+          cols="50"
+          placeholder="Leave a review..."
+        ></textarea>
+        <button type="submit" id="submit">Submit</button>
+      </form>
+      <br />
+      <a href="/movies/new"
+        ><h2 id="add-btn">Add Film"</h2>
+        <button id="rnd-btn" class="rnd-btn" type="button">+</button></a
+      >
+    </div>
+    <div>
+      <a href="/movies/<%=movie._id%>/edit"
+        ><h2 id="edit-btn">Edit Film</h2>
+        <button id="rnd-btn" class="rnd-btn" type="button">+</button></a
+      ><br /><br />
+      <a id="home" href="/movies">Home</a>
+    </div>
 
-  
+    <h2 class="blue">Cast</h2>
 
+    <ul id="cast-ul">
+    <%  for (let i = 0; i < movie.actors.length; i++) { %>
+      <li>
+        <img class="cast-image" src="<%=movie.actors[i].imgUrl%>"> 
+      </li>
+   <% } %>
+    </ul>
 
+    <div id="right-side">
+      <img class="image" src="<%=movie.imgUrl%>" alt="Movie image" />
 
+      <% for (i = 0; i < movie.movieReviews.length; i++) { %>
 
-  </div>
-  <form action="/movies/<%=movie._id%>/review" method="POST">
-    <textarea id="review" name="body" rows="4" cols="50" placeholder= "Leave a review..."></textarea>
-    <button type="submit" id="submit">Submit</button>
-</form>
-    <a href="/movies/new"><h2 id="add-btn">Add Film"</h2><button id="rnd-btn" class="rnd-btn" type="button">+</button></a>
-  </div>
-  <div>
-    <a href="/movies/<%=movie._id%>/edit"><h2 id="edit-btn">Edit Film</h2><button id="rnd-btn" class="rnd-btn" type="button">+</button></a><br><br>
-    <a id="home" href="/movies">Home</a>
-  </div>
-<div id="right-side">
-    <img class="image" src="<%=movie.imgUrl%>" alt="Movie image">
-
-    <% for (i = 0; i < movie.movieReviews.length; i++) { %>
-     
       <p class="review"><%= movie.movieReviews[i].body%></p>
-    
-    <% } %>
-    
-</div> 
-<div id="thanks">
-    <a href="https://icons8.com/icon/85638/thumbs-up">Poor Quality icon by Icons8</a>
-    <a href="https://icons8.com/icon/45885/good-quality">Good Quality icon by Icons8</a>
-</div>
+
+      <% } %>
+    </div>
 
 
-    
-</body>
+
+
+
+    <div id="thanks">
+      <a href="https://icons8.com/icon/85638/thumbs-up"
+        >Poor Quality icon by Icons8</a
+      >
+      <a href="https://icons8.com/icon/45885/good-quality"
+        >Good Quality icon by Icons8</a
+      >
+    </div>
+  </body>
 </html>

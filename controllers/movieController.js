@@ -5,10 +5,6 @@ const router = express.Router();
 // internal modules (database)
 const db = require("../models"); //?("../models/Movie.js")
 
-//body-parser
-//const bodyParser = require("body-parser");
-
-
 
 // base routes (movies)
 // Rest Routes
@@ -48,7 +44,6 @@ router.get("/", function (req, res) {
     }
 });
 
-
 //New
 router.get("/new", function (req, res) {
     
@@ -61,55 +56,6 @@ router.get("/new", function (req, res) {
     })
     
 });
-
-//Show
-router.get("/:id", function (req, res) {
-    const id = req.params.id;
-
-    db.Movie.findById(id, function (err, foundMovie) {
-        if (err) {
-            console.log(err);
-            return res.send("Server Error")
-        } else {
-            const context = {movie: foundMovie}
-            res.render("movieViews/show.ejs", context)
-        }
-    })
-   
-});
-
-// Rating
-router.put("/:id/rating", function (req, res) {
-    const id = req.params.id;
-    findOneAndUpdate({_id :id}, {$inc : {'ratingUp' : 1}}).exec(function (err, foundMovie) {
-        if (err) return res.send(err)
-    });
-})
-
-//Review
-router.post("/:id/review", function (req, res)  {
-    db.Movie.findById(req.params.id, function (err, foundMovie) {
-        if (err) return res.send(err);
-            console.log(err); 
-            foundMovie.movieReviews.push(req.body)
-            foundMovie.save();
-       
-            return res.redirect(`/movies/${foundMovie._id}`);
-            
-    });
-});
-    router.get("/:id/review", function (req, res) {
-        const review = db.Movie.movieReviews
-        db.Movie.find({"db.Movie.movieReviews": "review"}) ;
-                
-            if (err) {
-                console.log(err);
-                return res.send("Server Error")
-            } else {
-                const context = {review: foundReview}
-                res.render("movieView/show", context);//val = document.getElementById('num').innerHTML;
-            }
-    });
 
 //Create
 router.post("/", function (req, res)  {
@@ -127,7 +73,79 @@ router.post("/", function (req, res)  {
         });
     });
 
-    
+//Show
+router.get("/:id", function (req, res) {
+    const id = req.params.id;
+    if (req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        db.Movie.findOne({title: regex}, function (err, foundMovie) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.redirect(`movies/${foundMovie._id}`)
+                }
+            })
+    } else {
+    db.Movie.findById(id) 
+    .populate("actors")
+    .exec(function (err, foundMovie) {
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {movie: foundMovie}
+            res.render("movieViews/show.ejs", context)
+        }
+    })
+    }    
+});
+
+// Rating
+router.put("/:id/rating", function (req, res) {
+    const id = req.params.id;
+
+    db.Movie.findOneAndUpdate({_id :id}, {$inc : {'ratingUp' : 1}}).exec(function (err, foundMovie) {
+        if (err) return res.send(err)
+
+        return res.redirect(`/movies/${foundMovie._id}`)
+    });
+})
+// Rating
+router.put("/:id/ratingDown", function (req, res) {
+    const id = req.params.id;
+
+    db.Movie.findOneAndUpdate({_id :id}, {$inc : {'ratingDown' : 1}}).exec(function (err, foundMovie) {
+        if (err) return res.send(err)
+
+        return res.redirect(`/movies/${foundMovie._id}`)
+    });
+})
+
+//Review - post reviews to database
+router.post("/:id/review", function (req, res)  {
+    db.Movie.findById(req.params.id, function (err, foundMovie) {
+        if (err) return res.send(err);
+            console.log(err); 
+            foundMovie.movieReviews.push(req.body)
+            foundMovie.save();
+       
+            return res.redirect(`/movies/${foundMovie._id}`);
+    });
+});
+
+// Review - get reviews to display
+router.get("/:id/review", function (req, res) {
+    const review = db.Movie.movieReviews
+    db.Movie.find({"db.Movie.movieReviews": "review"}) ;
+            
+        if (err) {
+            console.log(err);
+            return res.send("Server Error")
+        } else {
+            const context = {review: foundReview}
+            res.render("movieView/show", context);
+        }
+});
 
 //Edit
 router.get("/:id/edit", function (req, res) {
@@ -137,22 +155,30 @@ router.get("/:id/edit", function (req, res) {
             console.log(err);
             return res.send("Server Error")
         } else {
-            const context = {movie: foundMovie}
-            res.render("movieViews/edit", context);
+            db.Actor.find({},function (err, foundActor) {
+                if (err) return res.send(err)
+
+                const context = {movie: foundMovie,
+                    actor: foundActor}
+                
+                    res.render("movieViews/edit", context);
+            } )
+            
+            
         }
     })
     
 });
 
-
 //Update
 router.put("/:id", function (req, res) {
     const id = req.params.id;
+
     db.Movie.findByIdAndUpdate(
         id, 
         {
             $set: { 
-                name: req.body.title,
+                title: req.body.title,
                 director: req.body.director,
                 imgUrl: req.body.imgUrl
             }
@@ -162,12 +188,23 @@ router.put("/:id", function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                return res.redirect(`/actors/${updatedMovie._id}`)
+
+            if (req.body.actors) {
+                db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
+                    if (err) return res.send(err);
+                    console.log(foundActor, "foundActor");
+                    foundActor.titles.push(updatedMovie)
+                    foundActor.save();
+                    updatedMovie.actors.push(foundActor)
+                    updatedMovie.save()
+                });
             }
+        return res.redirect(`/movies/${updatedMovie._id}`)
         }
-    )
+        })
 });
 
+//Delete
 router.delete("/:id", function (req, res) {
     const id = req.params.id;
     db.Movie.findByIdAndDelete(id, function (err, deletedMovie) {
@@ -177,6 +214,7 @@ router.delete("/:id", function (req, res) {
     })
      });
 
+// Function to work with text in search bar
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };   
