@@ -16,10 +16,10 @@
   </header>  
 <div id="left-side">    
   <nav class="search">
-    <h4 class="blue">Find, Actors</h4>
-    <form action="/actors" id="search"> 
-        <input id="searchbar" type="search" name="q" placeholder="Search...">
-        <button id="search-btn">Search</button>
+    <form action="/actors" method="GET"> 
+      <h4 class="blue">Find Movies</h4>
+        <input id="searchbar" type="text" name="search" placeholder="Search...">
+        <input type="submit" id="search-btn" value="Search">
     </form>
   </nav>
 
@@ -43,7 +43,7 @@
     <ul>
     <%for (let i= 0; i < actor.titles.length; i++) {%>
 
-    <li><%=actor.titles[i].title%></li>
+    <a href="/movies/<%=actor.titles[i]%>"><li><%=actor.titles[i].title%></li></a>
    <% } %>
   </ul>
 

@@ -69,14 +69,24 @@ router.get("/new", function (req, res) {
 router.get("/:id", function(req, res) {
     const id = req.params.id;
 
-    db.Actor.findById(id) .populate("titles")
-    .exec(function (err, foundActor) {
-        if (err) return res.send(err)
+    if(req.query.search) {
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi'); 
+        db.Actor.findOne({name: regex}, function (err, foundActor){
+            if (err) {
+                console.log(err);
+                } else {
+                    res.redirect(`/actors/${foundActor._id}`)
+                }
+            })
+        } else {
+        db.Actor.findById(id) .populate("titles")
+        .exec(function (err, foundActor) {
+            if (err) return res.send(err)
 
-        const context = {actor: foundActor}
-        res.render("actorViews/show.ejs", context);
-    })
-    
+            const context = {actor: foundActor}
+            res.render("actorViews/show.ejs", context);
+            });
+        };
 });
 
 //Create
