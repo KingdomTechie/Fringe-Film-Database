@@ -11,9 +11,9 @@ The KMFFDB is a website, that will allow it's users to:
  5) Edit a film (UPDATE)
  6) Delete a film (Delete)
 
-## Wireframes and User Flow Images (Used in planning)## Installation (Dependencies)
+## Wireframes and User Flow Images (Used in planning)
 
-![ADD PAGE]<img src="/public/images/edit-page.png" width="200" height="200"
+![ADD PAGE](<img src="/public/images/edit-page.png" width="200px" height="200px">)
 
 ![EDIT PAGE](/public/images/edit-page.png)
 
