@@ -193,15 +193,21 @@ router.put("/:id", function (req, res) {
                 db.Actor.findById(req.body.actors).exec(function (err, foundActor) {
                     if (err) return res.send(err);
                     console.log(foundActor, "foundActor");
+
+                    if (!foundActor.titles.includes(updatedMovie._id)) {
                     foundActor.titles.push(updatedMovie)
                     foundActor.save();
+                    }
+
+                    if(!foundMovie.actors.includes(foundActor._id)) {
                     updatedMovie.actors.push(foundActor)
                     updatedMovie.save()
+                    }
                 });
             }
         return res.redirect(`/movies/${updatedMovie._id}`)
         }
-        })
+    })
 });
 
 //Delete
