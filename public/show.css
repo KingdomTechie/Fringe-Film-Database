@@ -120,6 +120,11 @@ h5 {
   object-fit: cover;
 }
 
+.cast-image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
 p {
   margin-top: -100px;
   height: 125px;
@@ -134,4 +139,10 @@ p {
 
 #thanks {
   margin-left: 5%;
+}
+
+#cast-ul {
+  position: absolute;
+  display: flex;
+  list-style-type: none;
 }

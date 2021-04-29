@@ -81,10 +81,12 @@
       <a id="home" href="/movies">Home</a>
     </div>
 
-    <ul>
+    <h2 class="blue">Cast</h2>
+
+    <ul id="cast-ul">
     <%  for (let i = 0; i < movie.actors.length; i++) { %>
       <li>
-        <%=movie.actors[i].name%>
+        <img class="cast-image" src="<%=movie.actors[i].imgUrl%>"> 
       </li>
    <% } %>
     </ul>

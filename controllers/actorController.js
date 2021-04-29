@@ -17,6 +17,8 @@ const db = require("../models");
  * Delete - DELETE - /actors/:id  - Functional - Deletes author by id from request
  */
 
+// regex credit: https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
+// regex credit: https://youtu.be/9_lKMTXVk64
 //Index
 router.get("/", function (req, res) {
   if (req.query.search) {
