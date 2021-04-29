@@ -1,5 +1,6 @@
 body {
     background-color: #aaaaaa;
+    background: linear-gradient(to right,#404040, #ffffff);
 
 }
 
@@ -109,10 +110,10 @@ h5 {
 }
 
 .image {
-    margin-top: -750px;
+    margin-top: -675px;
     margin-bottom: 170px;
-    height: 350px;
-    width: 500px;
+    height: auto;
+    width: 400px;
     border-radius: 5px;
     object-fit: cover;
 }
@@ -120,7 +121,7 @@ h5 {
 .actor-image {
     margin-top: -350px;
     margin-bottom: 170px;
-    height: 350px;
+    max-height: 350px;
     width: 500px;
     border-radius: 5px;
     object-fit: cover;
@@ -128,7 +129,7 @@ h5 {
 
 p  {
     margin-top: -100px;
-    height: 500px;
+    height: 125px;
     width: 500px;
     color: #033076;
     font-size: 18px;

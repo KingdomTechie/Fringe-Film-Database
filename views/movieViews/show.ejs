@@ -29,10 +29,11 @@
   <div id="thumbs">
 
     <form action="/movies/<%=movie._id%>/rating?_method=PUT" method="POST">
-      <input type="image" name="ratingUp" src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png" alt="Submit Form"/> 
+      <input type="image" name="ratingUp" src="https://img.icons8.com/ultraviolet/40/000000/good-quality--v1.png" alt="Submit Form"/><span><%=movie.ratingUp%></span>
     </form>
+
     <form action="/movies/<%=movie._id%>/ratingDown?_method=PUT" method="POST">
-      <input type="image" name="ratingDown" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png" alt="Submit Form"/> 
+      <input type="image" name="ratingDown" src="https://img.icons8.com/ultraviolet/40/000000/poor-quality.png" alt="Submit Form"/><span><%=movie.ratingDown%></span> 
     </form>
     
   </div>
