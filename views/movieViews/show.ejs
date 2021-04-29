@@ -81,6 +81,14 @@
       <a id="home" href="/movies">Home</a>
     </div>
 
+    <ul>
+    <%  for (let i = 0; i < movie.actors.length; i++) { %>
+      <li>
+        <%=movie.actors[i].name%>
+      </li>
+   <% } %>
+    </ul>
+
     <div id="right-side">
       <img class="image" src="<%=movie.imgUrl%>" alt="Movie image" />
 
@@ -90,6 +98,11 @@
 
       <% } %>
     </div>
+
+
+
+
+
     <div id="thanks">
       <a href="https://icons8.com/icon/85638/thumbs-up"
         >Poor Quality icon by Icons8</a
