@@ -124,6 +124,7 @@ router.put("/:id", function (req, res) {
       $set: {
         name: req.body.name,
         imgUrl: req.body.imgUrl,
+        actorBio: req.body.actorBio
       },
     },
     { new: true },
