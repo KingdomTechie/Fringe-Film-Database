@@ -86,7 +86,9 @@ router.get("/:id", function (req, res) {
                 }
             })
     } else {
-    db.Movie.findById(id, function (err, foundMovie) {
+    db.Movie.findById(id) 
+    .populate("actors")
+    .exec(function (err, foundMovie) {
         if (err) {
             console.log(err);
             return res.send("Server Error")

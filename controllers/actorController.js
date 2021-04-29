@@ -18,17 +18,6 @@ const db = require("../models");
  */
 
 //Index
-/*
-router.get("/", function(req, res) {
-    db.Actor.find({}, function (err, foundActor) {
-        if (err) return res.send(err)
-
-        const context = {actor: foundActor};
-        res.render("actorViews/index", context)
-    });
-});
-*/
-
 router.get("/", function (req, res) {
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
@@ -53,7 +42,6 @@ router.get("/", function (req, res) {
 });
 
 // New
-
 router.get("/new", function (req, res) {
   db.Movie.find({}, function (err, foundMovies) {
     if (err) return res.send(err);
