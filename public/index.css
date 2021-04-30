@@ -45,7 +45,8 @@ h1 {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 20px;
     }
 
 h5 {
