@@ -125,6 +125,11 @@ h5 {
   max-height: 100px;
 }
 
+.title-image {
+  max-width: 100px;
+  max-height: 100px;
+}
+
 p {
   margin-top: -100px;
   height: 125px;
@@ -142,6 +147,12 @@ p {
 }
 
 #cast-ul {
+  position: absolute;
+  display: flex;
+  list-style-type: none;
+}
+
+#title-ul {
   position: absolute;
   display: flex;
   list-style-type: none;

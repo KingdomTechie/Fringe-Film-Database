@@ -28,7 +28,13 @@
         <a href="/actors/new">Add an Actor</a><br><br>
 
         <a href="/actors">Actor Database</a>
-    </div>
+    </div><br>
+
+    <div class="movie_index_div">
+        <%  movies.forEach((movie, index ) => { %>
+                <p><img class="movie-index" src="<%= movie.imgUrl%>"> </p> 
+       <%  }) %>
+      </div>
     
 </body>
 </html>
