@@ -3,10 +3,16 @@ body {
     #090710 0%, #322759 100%);
   };
 
-header {
-  margin: auto;
-  width: 400px;
-  padding: 5px;
+.index-header {
+    
+    background-image: url("/images/John-Wick.jpeg");
+    margin: auto;
+    width: 400px;
+    padding: 5px;
+}
+
+.actor-header__links {
+    margin-left: 20px;
 }
 
 h1 {
@@ -54,7 +60,8 @@ h5 {
 }
 
 p {
-    color:#033076
+    color:#033076;
+    
 }
 
 span {
@@ -68,6 +75,7 @@ span {
     width: 355px;
     border-radius: 5px;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 #search-btn  {
@@ -78,3 +86,9 @@ span {
 }
 
 
+background-image: url("/images/John-Wick.jpeg");
+background-repeat: no-repeat;
+background-size: contain;
+/* background-attachment: fixed; */
+background-position: 100%;
+background-color: rgba(0,0,0,0.5);

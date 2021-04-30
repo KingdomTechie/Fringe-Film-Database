@@ -10,25 +10,32 @@
     <title>KMFFDB Index Page</title>
 </head>
 <body>
-    <header>  
+
+
+
+<div class="actor-header">  
+
+    <div class="actor-header__links">
+
         <h1 class="blue">KMFFDB</h1>
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
-      </header>
-    <div id="searchbar">
+        <a href="/movies/new">Add a Movie</a><br>
+        <a href="/actors/new">Add an Actor</a><br><br>
+        <a href="/movies">Switch to Movie Database</a>
+    </div><br>
 
+    <div id="searchbar">
         <form action="/actors" method="GET"> 
             <p class="blue">Find Actors</p>
             <input type="search" name="search" placeholder="Search...">
             <input type="submit" value="Search">
-            
+        </form>
+    </div><br>
 
-        </form><br>
-    
-        <a href="/movies/new">Add a Movie</a><br>
-        <a href="/actors/new">Add an Actor</a><br><br>
-        <a href="/movies">Movie Database</a>
+</div>
+
    
-    </div>
+    
 
         <div class="actor_index_div">
       <%  actors.forEach((actor, index ) => { %>
