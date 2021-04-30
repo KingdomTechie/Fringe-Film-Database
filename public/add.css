@@ -1,7 +1,7 @@
 body {
-    background-color: #aaaaaa;
-    background: linear-gradient(to right,#404040, #ffffff);
-}
+    background-image: radial-gradient(farthest-corner at 40px 40px,
+    #090710 0%, #322759 100%);
+  };
 
 .blue {
     color: #033076
