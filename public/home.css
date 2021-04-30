@@ -3,9 +3,10 @@
 }
 
 body {
-    background-image: radial-gradient(farthest-corner at 40px 40px, #090710 0%, #322759 100%);
-    position: relative;
-}
+    background-image: radial-gradient(farthest-corner at 40px 40px,
+    #090710 0%, #322759 100%);
+    min-height: 100vh;
+  }
 
 @keyframes slideIn {
     from {transform: translateX(-610%);
@@ -29,5 +30,5 @@ div {
 }
 
 div h1 {
-    color: black;
+    color: white;
 }
