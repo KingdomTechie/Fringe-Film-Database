@@ -30,10 +30,10 @@
    
     </div>
 
-        <ul class="actor_image_ul">
+        <div class="actor_index_div">
       <%  actors.forEach((actor, index ) => { %>
-          <li>     <img class="actor-index" src="<%= actor.imgUrl%>"> </li>
+          <div><img class="actor-index" src="<%= actor.imgUrl%>"><br><span><%=actor.name%></span> </div>
      <%  }) %>
-    </ul>
+    </div>
 </body>
 </html>
