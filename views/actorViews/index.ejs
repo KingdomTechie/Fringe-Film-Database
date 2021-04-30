@@ -17,7 +17,7 @@
     <div id="searchbar">
 
         <form action="/actors" method="GET"> 
-            <p>Find Actors</p>
+            <p class="blue">Find Actors</p>
             <input type="search" name="search" placeholder="Search...">
             <input type="submit" value="Search">
             
@@ -32,7 +32,7 @@
 
         <div class="actor_index_div">
       <%  actors.forEach((actor, index ) => { %>
-          <div><img class="actor-index" src="<%= actor.imgUrl%>"><br><span><%=actor.name%></span> </div>
+          <div><img class="actor-index" src="<%= actor.imgUrl%>"><br><span class="blue"><%=actor.name%></span> </div>
      <%  }) %>
     </div>
 </body>

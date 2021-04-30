@@ -1,6 +1,6 @@
 body {
-    background-color: #aaaaaa;
-    background: linear-gradient(to right,#404040, #ffffff);
+    background-color: #090710;
+    
 
 }
 
@@ -15,7 +15,7 @@ h1 {
 }
 
 .blue {
-    color: #033076
+    color: #1554B4
 }
 
 .actor-index {
@@ -36,7 +36,8 @@ h1 {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 20px;;
     }
 
 .movie_index_div {
