@@ -22,6 +22,24 @@ h1 {
     max-width: 200px;
 }
 
+.movie-index {
+    max-width: 200px;
+}
+
+.actor_index_div {box-sizing: border-box;
+display: inline-flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-between;
+}
+
+.movie_index_div {
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
 h5 {
     font-size: 25px;
 }

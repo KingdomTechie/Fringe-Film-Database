@@ -38,7 +38,7 @@ router.get("/", function (req, res) {
             console.log(err);
         } else {
             const context = {movies: allMovies}
-            res.render("movieViews/index")
+            res.render("movieViews/index", context)
             }
         })
     }
