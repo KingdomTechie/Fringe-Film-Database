@@ -20,6 +20,34 @@ const db = require("../models");
 // regex credit: https://stackoverflow.com/questions/38421664/fuzzy-searching-with-mongodb
 // regex credit: https://youtu.be/9_lKMTXVk64
 //Index
+
+/*
+router.get("/", function (req, res) {
+
+  db.Actor.find({}, function (err, allActors) {
+    if (err) {
+      console.log(err);
+    } else {
+      const context = { actors: allActors };
+      res.render("actorViews/index", context);
+    }
+
+  if (req.query.search) {
+    const regex = new RegExp(escapeRegex(req.query.search), "gi");
+    db.Actor.findOne({ name: regex }, function (err, foundActor) {
+      if (err) {
+        console.log(err);
+        return res.send("Actor may not be in database");
+      } else {
+        res.redirect(`actors/${foundActor._id}`);
+      }
+    });
+  }
+  })
+  });
+*/
+
+
 router.get("/", function (req, res) {
   if (req.query.search) {
     const regex = new RegExp(escapeRegex(req.query.search), "gi");
@@ -36,12 +64,14 @@ router.get("/", function (req, res) {
       if (err) {
         console.log(err);
       } else {
-        const context = { movies: allActors };
-        res.render("actorViews/index");
+        const context = { actors: allActors };
+        res.render("actorViews/index", context);
       }
     });
   }
 });
+
+
 
 // New
 router.get("/new", function (req, res) {
@@ -148,7 +178,6 @@ router.put("/:id", function (req, res) {
             updatedActor.titles.push(foundMovie)
             updatedActor.save();
             }
-            
           })
         
         }
