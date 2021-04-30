@@ -1,0 +1,33 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+    background-color: #330033;
+    position: relative;
+}
+
+@keyframes slideIn {
+    from {transform: translateX(-610%);
+     }
+ 
+     to { transform: translateX(200);
+     }
+ 
+ }
+div {
+    text-align: center;
+    display: inline-flex;
+    border-style: none;
+    max-width: 500px;
+    position: absolute;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 45%;
+    margin-top: 22%;
+    animation: 1s slideIn;
+}
+
+div h1 {
+    color: white;
+}

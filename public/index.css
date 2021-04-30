@@ -26,11 +26,10 @@ h1 {
     max-width: 200px;
 }
 
-.actor_index_div {box-sizing: border-box;
-display: inline-flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: space-between;
+.actor_image_ul {
+    display: flex;
+    justify-content: space-between;
+
 }
 
 .movie_index_div {
