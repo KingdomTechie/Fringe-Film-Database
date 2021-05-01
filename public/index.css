@@ -1,15 +1,41 @@
 body {
     background-image: radial-gradient(farthest-corner at 40px 40px,
     #090710 0%, #322759 100%);
+    min-height: 100vh;
   }
 
-.index-header {
-    
-    background-image: url("/images/John-Wick.jpeg");
-    margin: auto;
-    width: 400px;
-    padding: 5px;
+.actor-header {
+    position: relative;
 }
+
+#actor-header__image {
+    background-image: linear-gradient(to left, transparent, #090710),
+    url("/images/John-Wick.jpeg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+    margin-bottom: 10px;
+    position: absolute;
+    width: 53%;
+    height: 99%;
+    margin-left: 47%;
+    box-shadow: 0 0 10px 10px #171328 inset;
+}
+/*
+#actor-header {
+    background-image: linear-gradient(to left, transparent, #090710),
+        url("/images/John-Wick.jpeg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+    margin-bottom: 10px;
+    position: absolute;
+    width: 100%;
+
+} 
+*/
+
+
 
 .actor-header__links {
     margin-left: 20px;

@@ -15,7 +15,8 @@ body {
      to { transform: translateX(200);
      }
  
- }
+}
+
 div {
     text-align: center;
     display: inline-flex;
