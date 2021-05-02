@@ -32,11 +32,10 @@
     </header>
 
     <section class="gallery">
-    <div class="movie_index_div">
+    
         <%  movies.forEach((movie, index ) => { %>
-                <p><img class="movie-index" src="<%= movie.imgUrl%>"> </p> 
+                <p><img class="movie-index__card" src="<%= movie.imgUrl%>"> </p> 
        <%  }) %>
-      </div>
     </section>
     
 </body>

@@ -54,7 +54,7 @@ h1 {
     max-height: 200px;
 }
 
-.movie-index {
+.movie-index__card {
     max-width: 200px;
     max-height: 275px;
 }
@@ -109,6 +109,14 @@ span {
     background-color: #033076;
     color: white;
     border-radius: 5px;
+}
+
+.gallery {
+    height: 70vh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 /*  
