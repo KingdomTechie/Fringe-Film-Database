@@ -17,26 +17,27 @@ body {
 
 #actor-header__image {
 
-    background-image: url("/images/downton-abbey.jpeg");
+    background-image: url("/images/marlonbrando.jpg");
     /* background-image: linear-gradient(to left, transparent, #090710),
     url("/images/John-Wick.jpeg"); */
 
     background-repeat: no-repeat;
     background-position-x: right;
+    background-position-y: -209px;
     background-size: cover;
     margin-bottom: 10px;
     position: absolute;
-    width: 53%;
+    width: 58%;
     height: 100%;
-    margin-left: 47%;
+    margin-left: 42%;
     box-shadow: 0 0 10px 10px #171328 inset;
-    opacity: .40;
+    opacity: .70;
     overflow: hidden;
 } 
 
 #movie-header__image {
 
-    background-image: url("/images/StarWars.jpg");
+    background-image: url("/images/starwars_big.jpeg");
     /* background-image: linear-gradient(to left, transparent, #090710),
     url("/images/John-Wick.jpeg"); */
 
@@ -45,11 +46,11 @@ body {
     background-size: cover;
     margin-bottom: 10px;
     position: absolute;
-    width: 53%;
+    width: 76%;
     height: 100%;
-    margin-left: 47%;
+    margin-left: 24%;
     box-shadow: 0 0 10px 10px #171328 inset;
-    opacity: .40;
+    opacity: .70;
     overflow: hidden;
 } 
 
