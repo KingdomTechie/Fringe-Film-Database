@@ -35,17 +35,20 @@
             </option>
       <% }); %>
         </select><br><br>
-        
+    
+    <div id="bottom-buttons"> 
         <input type="submit" class="add-btn" value="Edit">
 
     </form>
-
-    <div id="bottom-buttons">
+    </div>
+    <div id="delete-btn">
         <form action="/movies/<%=movie.id%>?_method=DELETE" method="POST">
             <input type="submit" class="add-btn" value="Delete Film">
         </form>
+
+    
         
-        <a href="/movies"><button class="add-btn" type="button">Home</button></a>
+        <a class="home-btn" href="/movies"><button class="add-btn" type="button">Home</button></a>
     </div>
     
     </div>

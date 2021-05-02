@@ -18,7 +18,7 @@
 
         <form action="/actors/<%=actor._id%>?_method=PUT" method="POST">
         <h3 class="info">Name</h3>
-        <input type="text" name="name" id="fields" rows="4" cols="50" value=<%=actor.name%> placeholder="Name">
+        <input type="text" name="name" id="fields" rows="4" cols="50" placeholder=<%=actor.name%>>
     
         <h3 class="info">Actor Photos</h3>
         <input type="text" name="imgUrl" id="fields" rows="4" cols="50" value=<%=actor.imgUrl%>placeholder="Actor Photo, URL's ONLY">
@@ -37,7 +37,7 @@
 
         <h3 class="blue">Edit Actor Bio</h3>
 
-        <textarea id="review" name="actorBio" rows="4" cols="50" placeholder="Actor Bio..."></textarea>
+        <textarea id="review" name="actorBio" rows="4" cols="50" placeholder=><%=actor.actorBio%></textarea>
         <input type="submit" value="Submit">
 
     </form><br>

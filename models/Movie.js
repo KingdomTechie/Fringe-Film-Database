@@ -10,7 +10,7 @@ const movieSchema = new mongoose.Schema(
         ratingUp: {type: Number, default: 0},
         ratingDown: {type: Number, default: 0},
         
-        actors: [{type: mongoose.Schema.Types.ObjectId, ref: "Actor"}]
+        actors: [{type: mongoose.Schema.Types.ObjectId, ref: "Actor", unique: true}, ]
     },
     {
         timestamps: true,
