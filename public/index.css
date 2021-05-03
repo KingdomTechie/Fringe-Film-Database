@@ -30,20 +30,16 @@ h1 {
     max-height: 275px;
 }
 
-<<<<<<< HEAD
-=======
 .actor-index {
     max-width: 200px;
     max-height: 200px;
 }
 
+
 .movie-index {
     max-width: 200px;
     max-height: 275px;
 }
-
->>>>>>> submaster
-
 
 .actor_index_div {
     padding: 0 20px 0 20px;
@@ -69,6 +65,10 @@ h5 {
 
 p {
     color: #805;
+}
+
+span {
+    text-align: center;
 }
 
 span {
