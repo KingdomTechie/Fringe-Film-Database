@@ -144,6 +144,7 @@ h5 {
   padding: 5px;
 }
 
+<<<<<<< HEAD
 p  {
     margin-top: -100px;
     height: 125px;
@@ -153,14 +154,25 @@ p  {
     
 }  
 
+=======
+>>>>>>> submaster
 .title-image {
   max-width: 100px;
   max-height: 100px;
 }
 
+<<<<<<< HEAD
 a  {
     color: #880055;
 
+=======
+p {
+  margin-top: -100px;
+  height: 125px;
+  width: 500px;
+  color: #033076;
+  font-size: 18px;
+>>>>>>> submaster
 }
 
 #home {
@@ -186,6 +198,12 @@ a  {
   list-style-type: none;
   padding: 10px;
   margin-left: 5%;
+}
+
+#title-ul {
+  position: absolute;
+  display: flex;
+  list-style-type: none;
 }
 
 #title-ul {
