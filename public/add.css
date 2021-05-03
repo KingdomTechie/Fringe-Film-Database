@@ -2,13 +2,9 @@ body {
     background-image: radial-gradient(farthest-corner at 40px 40px,
     #090710 0%, #322759 100%);
     min-height: 100vh;
-    color: #880055
-  };
+    color:#e6008e
+  }
 
-.blue {
-    color: #880055;
-   
-}
 
 header {
   margin: auto;
@@ -21,10 +17,6 @@ h1 {
     
 }
 
-h3 {
-    color:#880055;
-    
-}
 
 
 h5 {
@@ -39,7 +31,7 @@ h5 {
 }
 
 .info {
-    color: #880055;
+    
     margin-top: -1px;
     padding: 5px;
     margin-left: -5px;
@@ -75,7 +67,7 @@ h5 {
   }
 
   .a  {
-      color: #880055;
+      color: #e6008e;
       
 }
 
