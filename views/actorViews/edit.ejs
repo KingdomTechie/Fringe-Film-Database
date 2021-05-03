@@ -18,10 +18,10 @@
 
         <form action="/actors/<%=actor._id%>?_method=PUT" method="POST">
         <h3 class="info">Name</h3>
-        <input type="text" name="name" id="fields" rows="4" cols="50" placeholder=<%=actor.name%>>
+        <input type="text" name="name"  placeholder=<%=actor.name%>>
     
         <h3 class="info">Actor Photos</h3>
-        <input type="text" name="imgUrl" id="fields" rows="4" cols="50" value=<%=actor.imgUrl%>placeholder="Actor Photo, URL's ONLY">
+        <input type="text" name="imgUrl"  value=<%=actor.imgUrl%>placeholder="Actor Photo, URL's ONLY">
        
 
         <h3 class="info">Films</h3>

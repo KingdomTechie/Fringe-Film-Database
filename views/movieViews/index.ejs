@@ -9,34 +9,39 @@
     <link rel="stylesheet" href="./index.css">
     <title>KMFFDB Index Page</title>
 </head>
-<body class="radial-gradient">
-    <header>  
+
+<body>
+
+
+    <header class ="actor-header">  
+        <div id="movie-header__image"></div>
+
+
+
+    <div class="actor-header__links">
         <h1 class="blue">KMFFDB</h1>
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
-      </header>
-    <div id="searchbar">
-
-
-
-        <form action="/movies" method="GET" > 
-            <p>Find Movies</p>
-            <input type="text" name="search" placeholder="Search...">
-            <input type="submit" value="Search">
-
-        </form><br>
         <a class="blue" href="/movies/new">Add a Movie</a><br>
         <a class="blue" href="/actors/new">Add an Actor</a><br><br>
-
-
-        <a class="blue" href="/actors">Actor Database</a>
+        <a class="blue" href="/actors">Switch to Actor Database</a>
 
     </div><br>
+      
+    <div id="searchbar">
+        <form action="/movies" method="GET" > 
+            <p class="blue">Find Movies</p>
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="Search">
+        </form><br>
+        
+    </header>
 
-    <div class="movie_index_div">
+    <section class="gallery">
+    
         <%  movies.forEach((movie, index ) => { %>
-                <p><img class="movie-index" src="<%= movie.imgUrl%>"> </p> 
+                <p><img class="movie-index__card" src="<%= movie.imgUrl%>"> </p> 
        <%  }) %>
-      </div>
+    </section>
     
 </body>
 </html>

@@ -101,11 +101,12 @@ router.get("/:id", function (req, res) {
       .populate("titles")
       .exec(function (err, foundActor) {
         if (err) return res.send(err);
-
+        
         const context = { actor: foundActor };
         res.render("actorViews/show.ejs", context);
       });
   }
+  
 });
 
 //Create

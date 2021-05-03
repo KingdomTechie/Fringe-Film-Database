@@ -1,11 +1,13 @@
 body {
-    background-image: radial-gradient(farthest-corner at 40px 40px,
-    #090710 0%, #322759 100%);
-}
+
+  background-image: radial-gradient(farthest-corner at 40px 40px,
+  #090710 0%, #322759 100%);
+  min-height: 100vh;
+};
 
 .blue {
   color: #880055;
-  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 rgb(218, 171, 171);
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgrey;
 }
 
 header {
@@ -48,8 +50,7 @@ h5 {
 #searchbar {
   background-color: lightgray;
   width: 355px;
-  border-radius: 5px;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 #search-btn {
@@ -127,7 +128,7 @@ h5 {
 }
 
 .actor-image {
-  margin-top: -350px;
+  margin-top: -230px;
   margin-bottom: 170px;
   max-height: 350px;
   width: 500px;
@@ -155,7 +156,7 @@ p {
   margin-top: -100px;
   height: 125px;
   width: 500px;
-  color: #033076;
+  color: #1554B4;
   font-size: 18px;
 
 }

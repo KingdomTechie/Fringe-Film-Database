@@ -19,7 +19,7 @@ const controller = require("./controllers")  //? ./controllers/movieController.j
 const app = express();
 
 // Configuration Variables
-const PORT = 4000
+const PORT = 4001
 require("dotenv").config();
 
 // App Configuration

@@ -1,7 +1,9 @@
 body {
     background-image: radial-gradient(farthest-corner at 40px 40px,
     #090710 0%, #322759 100%);
-}
+    min-height: 100vh;
+    color: #880055
+  };
 
 .blue {
     color: #880055;
@@ -16,6 +18,7 @@ header {
 
 h1 {
     font-size: 90px;
+    color: #1554B4
 }
 
 h3 {

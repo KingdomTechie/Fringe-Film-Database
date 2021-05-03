@@ -1,31 +1,100 @@
 body {
     background-image: radial-gradient(farthest-corner at 40px 40px,
     #090710 0%, #322759 100%);
+    min-height: 100vh;
+  color: #880055;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
+  }
+
+.actor-header {
+
+    /* background-image: url("/images/John-Wick.jpeg");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover; */
+
+    position: relative;
+    overflow: hidden;
+}
+
+#actor-header__image {
+
+    background-image: url("/images/marlonbrando.jpg");
+    /* background-image: linear-gradient(to left, transparent, #090710),
+    url("/images/John-Wick.jpeg"); */
+
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: -209px;
+    background-size: cover;
+    margin-bottom: 10px;
+    position: absolute;
+    width: 58%;
+    height: 100%;
+    margin-left: 42%;
+    box-shadow: 0 0 10px 10px #171328 inset;
+    opacity: .70;
+    overflow: hidden;
+} 
+
+#movie-header__image {
+
+    background-image: url("/images/starwars_big.jpeg");
+    /* background-image: linear-gradient(to left, transparent, #090710),
+    url("/images/John-Wick.jpeg"); */
+
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: cover;
+    margin-bottom: 10px;
+    position: absolute;
+    width: 76%;
+    height: 100%;
+    margin-left: 24%;
+    box-shadow: 0 0 10px 10px #171328 inset;
+    opacity: .70;
+    overflow: hidden;
+} 
+
+
+/*
+#actor-header {
+    background-image: linear-gradient(to left, transparent, #090710),
+        url("/images/John-Wick.jpeg");
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-size: contain;
+    margin-bottom: 10px;
+    position: absolute;
+    width: 100%;
+
+} 
+*/
+
+
+
+.actor-header__links {
+    margin-left: 20px;
+=======
 }
     
-      
-      
-header {
-    margin: auto;
-    width: 400px;
-    padding: 5px;
-}
 
 h1 {
     font-size: 90px;
 }
 
 .blue {
+
     color: #880055;
-    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 rgb(218, 171, 171);
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
-.actor-index {
+.actor-index__card {
     max-width: 200px;
     max-height: 200px;
 }
 
-.movie-index {
+.movie-index__card {
     max-width: 200px;
     max-height: 275px;
 }
@@ -59,20 +128,14 @@ h1 {
     justify-content: space-between;
     }
 
+
 h5 {
     font-size: 25px;
 }
 
 p {
-    color: #805;
-}
-
-span {
-    text-align: center;
-}
-
-span {
-    text-align: center;
+    
+    color: #880055;
 }
 
 span {
@@ -86,6 +149,7 @@ span {
     width: 355px;
     border-radius: 5px;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 #search-btn  {
@@ -95,4 +159,20 @@ span {
     border-radius: 5px;
 }
 
+.gallery {
+    height: 70vh;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 
+/*  
+background-image: url("/images/John-Wick.jpeg");
+background-repeat: no-repeat;
+background-size: contain;
+background-attachment: fixed;
+background-position: 100%;
+background-color: rgba(0,0,0,0.5);
+
+*/
