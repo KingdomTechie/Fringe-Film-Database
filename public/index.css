@@ -2,6 +2,8 @@ body {
     background-image: radial-gradient(farthest-corner at 40px 40px,
     #090710 0%, #322759 100%);
     min-height: 100vh;
+  color: #880055;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
   }
 
 .actor-header {
@@ -73,14 +75,18 @@ body {
 
 .actor-header__links {
     margin-left: 20px;
+=======
 }
+    
 
 h1 {
     font-size: 90px;
 }
 
 .blue {
-    color: #1554B4
+
+    color: #880055;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 .actor-index__card {
@@ -93,13 +99,43 @@ h1 {
     max-height: 275px;
 }
 
+.actor-index {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+
+.movie-index {
+    max-width: 200px;
+    max-height: 275px;
+}
+
+.actor_index_div {
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+
+.movie_index_div {
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+
+
 h5 {
     font-size: 25px;
 }
 
 p {
-    color:#1554B4;
     
+    color: #880055;
 }
 
 span {

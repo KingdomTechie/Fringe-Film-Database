@@ -8,6 +8,12 @@ body {
     min-height: 100vh;
   }
 
+.blue {
+    color:#bf69af;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 rgb(218, 171, 171);
+}
+
+
 @keyframes slideIn {
     from {transform: translateX(-610%);
      }
