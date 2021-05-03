@@ -13,7 +13,7 @@
     <title>KMFFDB SHOW</title>
   </head>
   <body>
-    <header>
+    <header class="blue">
       <h1 class="blue">KMFFDB</h1>
       <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       <h1 class="blue"><%=movie.title%></h1>
@@ -75,7 +75,7 @@
         <h2 class="blue" id="edit-btn">Edit Film</h2>
         <button id="rnd-btn" class="rnd-btn" type="button">+</button></a
       ><br /><br />
-      <a id="home" class="blue" href="/movies">Home</a>
+  
     </div>
 
     <h2 id="cast" class="blue">Cast</h2>
@@ -90,11 +90,14 @@
 
     <div id="right-side">
       <img class="image" src="<%=movie.imgUrl%>" alt="Movie image" />
+      <h1 class="blue">Reviews</h1>
 
+      <ul>
       <% for (i = 0; i < movie.movieReviews.length; i++) { %>
 
-      <p class="review"><%= movie.movieReviews[i].body%></p>
+      <li class="review"><%= movie.movieReviews[i].body%></li>
     <% } %>
+  </ul>
       </div>
     <div id="thanks">
       <a href="https://icons8.com/icon/85638/thumbs-up"

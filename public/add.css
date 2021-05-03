@@ -18,7 +18,7 @@ header {
 
 h1 {
     font-size: 90px;
-    color: #1554B4
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 h3 {
@@ -29,6 +29,7 @@ h3 {
 
 h5 {
     font-size: 25px;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 #info-fields {
@@ -65,11 +66,12 @@ h5 {
 
 .add-btn {
     margin-bottom: 20px;
-    background-color: #880055;
+    background-color: #008866;
     height: 40px;
     width: 50px;
-    color: #008866;
+    color: white;
     border-radius: 5px;
+    margin-left: -99px;
     
   }
 

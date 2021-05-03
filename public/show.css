@@ -7,7 +7,7 @@ body {
 
 .blue {
   color: #880055;
-  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgrey;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 header {
@@ -16,22 +16,41 @@ header {
   padding: 5px;
 }
 
+span {
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
+}
+
 h1 {
   font-size: 90px;
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 h2 {
   display: inline-block;
   margin-right: 5px;
   margin-bottom: 20px;
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
+}
+
+h3 {
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 h4 {
   font-size: 25px;
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
+  margin-top: 10px;
 }
 
 h5 {
   font-size: 25px;
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 #left-side {
@@ -94,14 +113,13 @@ h5 {
 #add-btn {
   font-size: 32px;
   color: #880055;
-  margin-left: 10px;
   
 }
 
 #edit-btn {
   font-size: 32px;
   color: #880055;
-  margin-left: 80px;
+  margin-left: 5%;;
  
 }
 
@@ -116,9 +134,14 @@ h5 {
   
 }
 
+#actor-bio {
+  margin-top: -7%;
+  position: absolute;
+}
+
 .image {
   margin-top: -675px;
-  margin-bottom: 170px;
+  margin-bottom: 6%;
   height: auto;
   width: 400px;
   border-radius: 5px;
@@ -128,7 +151,7 @@ h5 {
 }
 
 .actor-image {
-  margin-top: -230px;
+  margin-top: -407px;
   margin-bottom: 170px;
   max-height: 350px;
   width: 500px;
@@ -151,6 +174,7 @@ h5 {
 
 a  {
     color: #880055;
+}
 
 p {
   margin-top: -100px;
@@ -162,7 +186,7 @@ p {
 }
 
 #home {
-  margin-left: 5%;
+  margin-left: 0%;
 }
 
 .review {
@@ -171,6 +195,7 @@ p {
     color:lightgray;
     text-shadow: -.05px .05px 0 black, .05px -.05px 0 black, -.05px .05px 0 black, -.05px .05px 0 black;
     padding: 5px;
+    max-width: 87%;
 }
 
 #thanks {
@@ -186,20 +211,3 @@ p {
   margin-left: 5%;
 }
 
-#title-ul {
-  position: absolute;
-  display: flex;
-  list-style-type: none;
-}
-
-#title-ul {
-  position: absolute;
-  display: flex;
-  list-style-type: none;
-}
-
-#title-ul {
-  position: absolute;
-  display: flex;
-  list-style-type: none;
-}
