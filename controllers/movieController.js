@@ -221,6 +221,7 @@ router.delete("/:id", function (req, res) {
      });
 
 // Function to work with text in search bar
+
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
     };   

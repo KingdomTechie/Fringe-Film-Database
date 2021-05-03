@@ -31,7 +31,7 @@ div {
     position: absolute;
     flex-wrap: wrap;
     flex-direction: column;
-    margin-left: 42%;
+    margin-left: 49%;
     margin-top: 22%;
     animation: 1s slideIn;
 }
