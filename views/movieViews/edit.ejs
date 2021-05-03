@@ -14,6 +14,7 @@
         <h1 class="blue">KMFFDB</h1>
         <h5 class="blue">Keith & Mitch Fringe Film Database</h5>
       </header>
+      <a id="home" class= "home" class="blue" href="/movies">Home</a>
     <div id="info-fields"> 
         <form action="/movies/<%=movie._id%>?_method=PUT" method="POST">
         <h3 class="info">Edit <%=movie.title%></h3>
@@ -35,19 +36,16 @@
             </option>
       <% }); %>
         </select><br><br>
-        
+    
+    <div id="bottom-buttons"> 
         <input type="submit" class="add-btn" value="Edit">
 
     </form>
-
-    <div id="bottom-buttons">
+    
+    <div id="delete-btn">
         <form action="/movies/<%=movie.id%>?_method=DELETE" method="POST">
             <input type="submit" class="add-btn" value="Delete Film">
         </form>
-        
-        <a href="/movies"><button class="add-btn" type="button">Home</button></a>
-    </div>
-    
     </div>
     
 </body>

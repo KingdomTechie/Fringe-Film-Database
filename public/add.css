@@ -1,10 +1,11 @@
 body {
-    background-color: #aaaaaa;
-    background: linear-gradient(to right,#404040, #ffffff);
+    background-image: radial-gradient(farthest-corner at 40px 40px,
+    #090710 0%, #322759 100%);
 }
 
 .blue {
-    color: #033076
+    color: #880055;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 header {
@@ -15,6 +16,11 @@ header {
 
 h1 {
     font-size: 90px;
+}
+
+h3 {
+    color:#880055;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 darkgray;
 }
 
 
@@ -30,8 +36,10 @@ h5 {
 }
 
 .info {
-    color: #033076;
+    color: #880055;
     margin-top: -1px;
+    padding: 5px;
+    margin-left: -5px;
 }
 
 #fields {
@@ -39,7 +47,11 @@ h5 {
     height: 20px;
     border-radius: 5px;
     margin-top: -10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.posterURL {
+    padding: 5px;
 }
 
 #bottom-buttons {
@@ -50,10 +62,17 @@ h5 {
 
 .add-btn {
     margin-bottom: 20px;
-    background-color: #033076;
+    background-color: #880055;
     height: 40px;
     width: 50px;
-    color: white;
+    color: #008866;
     border-radius: 5px;
     
   }
+
+  .a  {
+      color: #880055;
+      text-shadow: -.05px .05px 0 black, .05px -.05px 0 black, -.05px .05px 0 black, -.05px .05px 0 black;
+}
+
+  

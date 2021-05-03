@@ -1,10 +1,11 @@
 body {
-  background-color: #aaaaaa;
-  background: linear-gradient(to right, #9c9494, #ffffff);
+    background-image: radial-gradient(farthest-corner at 40px 40px,
+    #090710 0%, #322759 100%);
 }
 
 .blue {
-  color: #033076;
+  color: #880055;
+  text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 rgb(218, 171, 171);
 }
 
 header {
@@ -18,8 +19,9 @@ h1 {
 }
 
 h2 {
-  display: inline;
+  display: inline-block;
   margin-right: 5px;
+  margin-bottom: 20px;
 }
 
 h4 {
@@ -44,6 +46,7 @@ h5 {
 }
 
 #searchbar {
+  background-color: lightgray;
   width: 355px;
   border-radius: 5px;
   margin-bottom: 80px;
@@ -67,6 +70,7 @@ h5 {
 }
 
 #review {
+  background-color: lightgray;
   display: block;
   height: 200px;
   margin-bottom: 20px;
@@ -75,31 +79,40 @@ h5 {
 
 #submit {
   height: 32px;
-  background-color: orangered;
-  color: white;
+  background-color: #008866;
+  color: lightgray;
   border-radius: 5px;
   font-size: 32;
 }
 
+#cast {
+    margin-left: 5%;
+    padding: 5px;
+}
+
 #add-btn {
   font-size: 32px;
-  color: #033076;
+  color: #880055;
   margin-left: 10px;
+  
 }
 
 #edit-btn {
   font-size: 32px;
-  color: #033076;
+  color: #880055;
   margin-left: 80px;
+ 
 }
 
 #rnd-btn {
   height: 40px;
   width: 50px;
   border-radius: 50px;
-  background-color: orangered;
-  color: white;
+  background-color: #008866;
+  color: lightgray;
   font-size: 25px;
+  margin-left: 10px;
+  
 }
 
 .image {
@@ -109,6 +122,8 @@ h5 {
   width: 400px;
   border-radius: 5px;
   object-fit: cover;
+  padding: 5px;
+  border-radius: 5px;
 }
 
 .actor-image {
@@ -118,11 +133,13 @@ h5 {
   width: 500px;
   border-radius: 5px;
   object-fit: cover;
+  padding: 5px;
 }
 
 .cast-image {
   max-width: 100px;
   max-height: 100px;
+  padding: 5px;
 }
 
 .title-image {
@@ -130,23 +147,51 @@ h5 {
   max-height: 100px;
 }
 
+
+a  {
+    color: #880055;
+
 p {
   margin-top: -100px;
   height: 125px;
   width: 500px;
   color: #033076;
   font-size: 18px;
+
 }
 
 #home {
   margin-left: 5%;
 }
 
+.review {
+    background-color: #880055;
+    border-radius: 5px;
+    color:lightgray;
+    text-shadow: -.05px .05px 0 black, .05px -.05px 0 black, -.05px .05px 0 black, -.05px .05px 0 black;
+    padding: 5px;
+}
+
 #thanks {
   margin-left: 5%;
+  color: #008866; 
 }
 
 #cast-ul {
+  position: absolute;
+  display: flex;
+  list-style-type: none;
+  padding: 10px;
+  margin-left: 5%;
+}
+
+#title-ul {
+  position: absolute;
+  display: flex;
+  list-style-type: none;
+}
+
+#title-ul {
   position: absolute;
   display: flex;
   list-style-type: none;

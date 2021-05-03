@@ -1,13 +1,14 @@
 body {
-    background-color: #aaaaaa;
-    background: linear-gradient(to right,#404040, #ffffff);
-
+    background-image: radial-gradient(farthest-corner at 40px 40px,
+    #090710 0%, #322759 100%);
 }
-
+    
+      
+      
 header {
-  margin: auto;
-  width: 400px;
-  padding: 5px;
+    margin: auto;
+    width: 400px;
+    padding: 5px;
 }
 
 h1 {
@@ -15,7 +16,8 @@ h1 {
 }
 
 .blue {
-    color: #033076
+    color: #880055;
+    text-shadow: -.05px .05px 0 darkgray, .05px -.05px 0 darkgray, -.05px .05px 0 darkgray, -.05px .05px 0 rgb(218, 171, 171);
 }
 
 .actor-index {
@@ -28,7 +30,16 @@ h1 {
     max-height: 275px;
 }
 
+.actor-index {
+    max-width: 200px;
+    max-height: 200px;
+}
 
+
+.movie-index {
+    max-width: 200px;
+    max-height: 275px;
+}
 
 .actor_index_div {
     padding: 0 20px 0 20px;
@@ -53,7 +64,15 @@ h5 {
 }
 
 p {
-    color:#033076
+    color: #805;
+}
+
+span {
+    text-align: center;
+}
+
+span {
+    text-align: center;
 }
 
 span {
